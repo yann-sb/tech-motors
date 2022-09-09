@@ -12,17 +12,9 @@
     border-radius: 50px;
 }
 
-/*config do titulo*/
-#title{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'lora';
-    font-weight: bold;
-}
-
 /*config linha inf do titulo*/
 #linha{
+    margin-top: 5px;
     height: 1px;
     width: 80%;
     background-color: black;
@@ -44,7 +36,8 @@
     margin-right: 5%;
 }
 
-#titulo{
-    display: flex;
-    flex-direction: row;
+.title h2{
+    width: 90%;
+    margin-top: 15px
+    
 }

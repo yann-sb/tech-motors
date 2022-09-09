@@ -23,11 +23,28 @@ body{
 /*config geral para alinhamento em linha*/
 .row{
     display: flex;
-    flex-direction: row
+    flex-direction: row;
 }
 
 .align{
     margin-left: auto;
     margin-right: auto;
     align-content: space-around;
+}
+
+/* seta para voltar pagina */
+.back{
+    width: 60px;
+    margin-top: 10px;
+    margin-left: 15px
+}
+
+/*config do titulo*/
+.title{
+    font-family: 'lora';
+    font-weight: bold;
+}
+
+.text_align{
+    text-align: center;
 }
