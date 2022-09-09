@@ -34,7 +34,7 @@ body{
 
 /* seta para voltar pagina */
 .back{
-    width: 60px;
+    width: 5%;
     margin-top: 10px;
     margin-left: 15px
 }
@@ -48,3 +48,4 @@ body{
 .text_align{
     text-align: center;
 }
+
