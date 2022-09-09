@@ -1,0 +1,38 @@
+body,html{
+    padding: 0px;
+    margin: 0px;
+
+    width: 100%;
+    height: 100%;
+    font-family: "lato";
+}
+
+body{
+    background-image: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(61,90,115,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/*config geral para alinhamento em coluna*/
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+/*config geral para alinhamento em linha*/
+.row{
+    display: flex;
+    flex-direction: row
+}
+
+.align{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: space-around;
+}
+
+.block_bottom{
+    background-color: #545454;
+    
+}

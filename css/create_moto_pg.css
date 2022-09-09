@@ -1,0 +1,87 @@
+/*config geral, daqui...*/
+body,html{
+    padding: 0px;
+    margin: 0px;
+
+    width: 100%;
+    height: 100%;
+    font-family: "lato";
+}
+
+body{
+background-image: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(61,90,115,1) 100%);
+
+}
+
+/*até aqui*/
+
+/*fundo das funçoes*/
+#block_bk{
+
+    width: 80%;
+    height: 65%;
+
+    background-color: #C7CDCE;
+    
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(0, 25%);
+
+    border-radius: 50px;
+}
+
+/*config do titulo*/
+#title{
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'lora';
+    font-weight: bold;
+}
+
+/*config linha inf do titulo*/
+#linha{
+    height: 1px;
+    width: 80%;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*alinhamento geral dos blocos*/
+.block{
+    display: flex;
+    flex-direction: column;
+}
+
+/*estilo geral das inputs*/
+.block input{
+    background-color: #A0B8CC;
+    border: 1px solid black;
+}
+
+/*estilo geral dos selects*/
+.block select{
+    background-color: #A0B8CC;
+    border: 1px solid black;
+}
+
+/*alinhamento das linhas de blocos*/
+.line{
+    display: flex;
+    flex-direction: row;
+}
+
+/*alinhamento titulo e linha*/
+#block_top{
+    display: flex;
+    flex-direction: column;
+}
+
+/*alinhamento das caixas*/
+#block_bottom{
+    display: flex;
+    flex-direction: row;
+}

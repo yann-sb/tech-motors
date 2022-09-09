@@ -1,0 +1,147 @@
+body,html{
+    padding: 0px;
+    margin: 0px;
+
+    width: 100%;
+    height: 100%;
+    font-family: "lato";
+}
+
+body{
+background-image: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(61,90,115,1) 100%);
+
+}
+
+/*parte verde do fundo*/
+#block_bk{
+
+    min-height: 540px;
+    min-width: 700px;
+
+    width: 50%;
+    height: 65%;
+
+    background-color: #455559;
+    
+    display: flex;
+    flex-direction: row;
+    
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(0, 25%);
+
+    border-radius: 50px;
+}
+
+/*config geral, divisória esquerda*/
+#block_left{
+    width: 50%;
+    height: 100%;
+
+    padding-left: 40px;
+    padding-top: 15px;
+
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+/*configuração do titulo*/
+#block_left h1{
+    color: #6CAB9C;
+}
+
+/*config geral, divisória direita*/
+#block_right{
+    width: 50%;
+    height: 100%;
+
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    padding-top: 5%;
+}
+
+/*linha de icones e caixas de input*/
+.block{
+    width: 60%;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+
+}
+
+/*configuração dos icones*/
+.icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    transform: translate(0, 50%);
+}
+
+/*titulo da direita*/
+.title_right{
+    height: 10%;
+    margin-bottom: 50px;
+}
+
+/*caixas de entrada*/
+.input{
+    border-style: none;
+    width: 420px;
+    height: 45px;
+    border-radius: 30px;
+    padding-left: 20px;
+}
+
+/*classe para alinhar objs*/
+.align{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*botoes de criar e acessar conta*/
+.button{
+    width: 250px;
+    height: 60px;
+    border-radius: 30px;
+    
+}
+
+/*botão de acessar conta*/
+.access{
+    background-color: #507D72;
+    border-style: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/*botão de criar conta*/
+.create{
+    background-color: #455559;
+    border-style: solid;
+    border-color: #507D72;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/*icone de vuzualizar/ocultar senha*/
+.eye{
+    margin-left: 10px;
+    margin-right: -5px;
+}
+
+/*logo :)*/
+#logo{
+    margin-top: 60PX;
+    width: 115%;
+}
