@@ -1,21 +1,3 @@
-/*config geral, daqui...*/
-body,html{
-    padding: 0px;
-    margin: 0px;
-
-    width: 100%;
-    height: 100%;
-    font-family: "lato";
-}
-
-body{
-background-image: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(61,90,115,1) 100%);
-background-size: 150%;
-
-}
-
-/*até aqui*/
-
 /*faixa decorativa titulo*/
 #block_title{
     margin-top: -20px;
@@ -31,14 +13,6 @@ background-size: 150%;
 .title{
     text-align: center;
     font-family: 'lora';
-}
-
-/*class para alinhamento*/
-.align{
-    margin-left: auto;
-    margin-right: auto;
-    align-content: space-around;
-    align-items: center;
 }
 
 .forms{

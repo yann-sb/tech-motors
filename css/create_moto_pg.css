@@ -1,20 +1,3 @@
-/*config geral, daqui...*/
-body,html{
-    padding: 0px;
-    margin: 0px;
-
-    width: 100%;
-    height: 100%;
-    font-family: "lato";
-}
-
-body{
-background-image: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(61,90,115,1) 100%);
-
-}
-
-/*até aqui*/
-
 /*fundo das funçoes*/
 #block_bk{
 
@@ -66,12 +49,6 @@ background-image: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(61,90,115,1
 .block select{
     background-color: #A0B8CC;
     border: 1px solid black;
-}
-
-/*alinhamento das linhas de blocos*/
-.line{
-    display: flex;
-    flex-direction: row;
 }
 
 /*alinhamento titulo e linha*/
