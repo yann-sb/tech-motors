@@ -35,21 +35,24 @@
             <div class="column right">
 
                 <div class="row top_right align">
-
-                    <div class="column type">
-                        <h3 class="title">Tipo de manutenção*</h3>
-                        <select class="column price input2">
-                            <option value="null">Selecione a sua opção</option>
+                    <div class="column con1">
+                        <label for="price" class="label"><h4 class="title">Preço*:</h4></label>
+                        <input type="int" class="input2" id="price">
+                    </div>
+                    
+                    <div class="column con2">
+                        <label for="type" class="label"> <h4 class="title">Tipo da manutenção*:</h4></label>
+                        <select id="type" class="input2">
+                            <option value="null">Escolha a sua opção*</option>
                             <option value="prev">Preventiva</option>
                             <option value="corre">Corretiva</option>
+                            <option value="aci">Acidente</option>
                         </select>
-                    </div>
 
-                    <div class="column price">
-                        <h3 class="title">Preço*</h3>
-                        <input class="input2" type="int">
                     </div>
+                    
                 </div>
+
                 <br><br>
                 <img src="images/logo.png">
 

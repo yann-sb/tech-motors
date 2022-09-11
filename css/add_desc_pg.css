@@ -59,10 +59,17 @@
 .input2{
     background-color: #507D72;
     height: 40px;
-    width: 180px;
+    width: 150px;
+    border-radius: 10px;
+    border-style: none;
 }
 
-.top_right{
-    display: flex;
-    flex-direction: row;
+.con1{
+    width: 180px;
+}
+.con2{
+    width: 280px;
+}
+.con2 select{
+    width: 250px;
 }
