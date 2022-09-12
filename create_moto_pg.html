@@ -11,84 +11,78 @@
 </head>
 <body>
     
-    <div id="block_bk">
+    <div class="column align block_bk">
 
-        <div id="block_top">
+        <div class="column text_align">
+            <h2>NOVA MOTO</h2>
+            <div class="align line"></div>
+        </div>
 
-            <h2 id="title">NOVA MOTO</h2>
+        <div class="row">
+            <div class="column align left block">
 
-            <div id="linha"></div>
+            <label for="nick">Apelido*</label>
+            <input type="text" id="nick">
+
+            <div class="row">
+
+                <div class="column">  
+                    <label for="brand">Marca*</label>
+                    <select id="brand">
+                        <option value="null">Escolha a sua opção</option>
+
+                    </select>
+                    
+                    <br>
+
+                    <label for="mod">Modelo*</label>
+                    <select id="mod">
+                        <option value="null">Escolha a sua opção</option>
+                        
+                    </select>
+                </div>
+
+                <div class="column">
+
+                    <label for="ano_fab">Ano(fabricação)*</label>
+                    <input id="ano_fab" type="int">
+                    <br>
+                    <label for="ano_mod">Ano(modelo)</label>
+                    <input id="ano_mod" type="int">
+
+                </div>
+                
+            </div>
+
+            <label for="desc">Descrição:</label>
+            <textarea id="desc" cols="30" rows="5"></textarea>
+
+            </div>
+
+            <div class="column align right block">
+
+                <div class="row">
+                    
+                    <div class="column">
+                        <label for="color">Cor*</label>
+                        <select id="color">
+                            <option value="null">Escolha a sua opção</option>
+                        </select>
+                    </div>
+
+                    <div class="column">
+                        <label for="plate">Placa*</label>
+                        <input type="text" id="plate">
+                    </div>
+                    
+                </div>
+                <img src="images/icons/insert_photo.png" id="add_photo">
+
+            </div>
+
+        </div>
+
         
-        </div>
-
-        <div id="block_bottom">
-
-            <div class="block left">
-
-                <div class="nick">
-                    <h3>Apelido*</h3>
-                    <input type="text" id="nick">
-                </div>
-
-                <div class="line one">
-                    <div class="marca">
-                        <h3>Marca*</h3>
-                        <select name="marca" id="marca">
-                            <option value="honda">Honda</option>
-                            <option value="yamaha">Yamaha</option>
-                        </select>
-                    </div>
-
-                    <div class="ano_fab">
-                        <h3>Ano (fabricação)*</h3>
-                        <input type="text" id="ano_fab">
-                    </div>
-                </div>
-
-                <div class="line two">
-                    <div class="modelo">
-                        <h3>Modelo*</h3>
-                        <select name="modelo" id="model">
-                            <option value="fan">fan</option>
-                            <option value="factor">factor</option>
-                        </select>
-                    </div>
-
-                    <div class="ano_mod">
-                        <h3>Ano (modelo)*</h3>
-                        <input type="text" id="ano_mod">
-                    </div>
-                </div>
-
-                <div class="desc">
-                    <h3>Descrição</h3>
-                    <input type="text" id="desc">
-
-                </div>
-
-            </div>
-
-            <div class="block right">
-            
-                <div class="line three">
-                    <div class="cor">
-                        <h3>Cor*</h3>
-                        <select name="cor" id="color">
-                            <option value="pto">preto</option>
-                            <option value="verm">vermelho</option>
-                        </select>
-                    </div>
-
-                    <div class="placa">
-                        <h3>Placa*</h3>
-                        <input type="text" id="placa">
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
     </div>
 
 </body>

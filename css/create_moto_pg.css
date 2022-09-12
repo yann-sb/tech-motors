@@ -1,64 +1,28 @@
-/*fundo das funçoes*/
-#block_bk{
-
+.block_bk{
     width: 80%;
     height: 65%;
 
-    background-color: #C7CDCE;
-    
-    display: flex;
-    flex-direction: column;
-    
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(0, 25%);
+    background-color: #2F3D40;
 
+    transform: translate(0, 25%);
     border-radius: 50px;
 }
-
-/*config do titulo*/
-#title{
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'lora';
-    font-weight: bold;
-}
-
-/*config linha inf do titulo*/
-#linha{
-    height: 1px;
+.line{
     width: 80%;
+    height: 1px;
     background-color: black;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 
-/*alinhamento geral dos blocos*/
 .block{
-    display: flex;
-    flex-direction: column;
+    width: 40%;
+    margin: 5%
 }
 
-/*estilo geral das inputs*/
-.block input{
-    background-color: #A0B8CC;
-    border: 1px solid black;
-}
 
-/*estilo geral dos selects*/
-.block select{
-    background-color: #A0B8CC;
-    border: 1px solid black;
-}
 
-/*alinhamento titulo e linha*/
-#block_top{
-    display: flex;
-    flex-direction: column;
-}
 
-/*alinhamento das caixas*/
-#block_bottom{
-    display: flex;
-    flex-direction: row;
+
+#add_photo{
+    width: 250px;
 }
