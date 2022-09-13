@@ -12,13 +12,11 @@ function pass_view(n){
 }
 
 /*função para alterar a pagina*/
-function pag_up(p){
-    if(p=="create"){
-        window.location.href = "create_user_pg.html"
-    }
-    if(p=="login"){
-        window.location.href = "login_pg.html"
-    }
+function pag_up(p){    
+    console.log("entrou");
+    
+    window.location.href = p
+
 };
 
 function button_test(a){
