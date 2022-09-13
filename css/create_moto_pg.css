@@ -1,10 +1,10 @@
 .block_bk{
-    width: 80%;
-    height: 65%;
+    width: 900px;
+    height: 450px;
 
     background-color: #2F3D40;
 
-    transform: translate(0, 25%);
+    transform: translate(0, 50%);
     border-radius: 50px;
 }
 .line{
@@ -16,14 +16,16 @@
 
 .block{
     width: 40%;
-    margin: 5%
+    margin-top: 3%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 .block_bk input{ 
     background-color: #507D72;
     height: 25px;
     border-style: none;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .block_bk select{
@@ -33,3 +35,7 @@
     border-radius: 5px
 }
 
+.add_photo{
+    width: 200px;
+    margin-top: 13px
+}
