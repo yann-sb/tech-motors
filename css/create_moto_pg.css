@@ -19,10 +19,17 @@
     margin: 5%
 }
 
-
-
-
-
-#add_photo{
-    width: 250px;
+.block_bk input{ 
+    background-color: #507D72;
+    height: 25px;
+    border-style: none;
+    border-radius: 5px
 }
+
+.block_bk select{
+    background-color: #507D72;
+    height: 27px;
+    border-style: none;
+    border-radius: 5px
+}
+
