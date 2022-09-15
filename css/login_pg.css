@@ -1,24 +1,3 @@
-/*parte verde do fundo*/
-#block_bk{
-
-    min-height: 540px;
-    min-width: 700px;
-
-    width: 50%;
-    height: 65%;
-
-    background-color: #455559;
-    
-    display: flex;
-    flex-direction: row;
-    
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(0, 25%);
-
-    border-radius: 50px;
-}
-
 /*config geral, divisória esquerda*/
 #block_left{
     width: 50%;
@@ -60,14 +39,6 @@
     flex-direction: row;
     margin: 15px;
 
-}
-
-/*configuração dos icones*/
-.icon{
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    transform: translate(0, 50%);
 }
 
 /*titulo da direita*/

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/create_user_pg.css">
     <link rel="stylesheet" href="css/config.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <title>Listagem</title>
+    <title>Cadastro</title>
 </head>
 <body>
     
@@ -17,15 +17,28 @@
             
             <img src="images/icons/arrow.png" class="return" onclick="button_test('hue');">
         
-            <h2 style="width: 90%;">NOVA MOTO</h2>
+            <h2 style="width: 90%;">CADASTRO</h2>
 
         </div>
         <div class="line align"></div>
 
+        <img src="images/icons/user_image.png" class="add_photo align">
+
         <div class="row cem">
 
             <div class="column left align">
-
+                
+                <input type="text" id="user_name">
+                
+                <input type="text" id="user_nick">
+                
+                <input type="email" id="user_email">
+                
+                <div class="row">
+                    <input type="password" id="pass_box">
+                    <img src="images/icons/view.png" class="icon eye" onclick="pass_view()">
+                </div>
+                
             </div>
             
             <div class="column right align">

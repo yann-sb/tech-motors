@@ -33,10 +33,11 @@ body{
 }
 
 /* seta para voltar pagina */
-.back{
-    width: 5%;
-    margin-top: 10px;
-    margin-left: 15px
+.return{
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 /*config do titulo*/
@@ -76,16 +77,11 @@ body{
     border-radius: 5px;
 } 
 
-.return{
-    width: 30px;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
 .left{
     width: 40%;
     height: 80%;
+
+    margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -93,6 +89,14 @@ body{
 .right{
     width: 40%;
     height: 80%;
+    
+    margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+/*configuração dos icones*/
+.icon{
+    width: 25px;
+    height: 25px;
 }
