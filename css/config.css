@@ -70,26 +70,10 @@ body{
     background-color: black;
 }
 
-.block_bk input{ 
-    background-color: #507D72;
-    height: 25px;
-    border-style: none;
-    border-radius: 5px;
-} 
-
-.left{
+.block{
     width: 40%;
     height: 80%;
 
-    margin-top: 3%;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.right{
-    width: 40%;
-    height: 80%;
-    
     margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
@@ -97,6 +81,20 @@ body{
 
 /*configuração dos icones*/
 .icon{
-    width: 25px;
+    width: 30px;
+    height: 30px;
+}
+
+.block_bk input{ 
+    background-color: #507D72;
     height: 25px;
+    border-style: none;
+    border-radius: 5px;
+} 
+
+.block_bk select{
+    background-color: #507D72;
+    height: 27px;
+    border-style: none;
+    border-radius: 5px
 }

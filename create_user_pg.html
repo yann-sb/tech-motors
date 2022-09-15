@@ -20,29 +20,51 @@
             <h2 style="width: 90%;">CADASTRO</h2>
 
         </div>
-        <div class="line align"></div>
 
-        <img src="images/icons/user_image.png" class="add_photo align">
+        <div class="line align"></div>
 
         <div class="row cem">
 
-            <div class="column left align">
+            <div class="column align">
                 
-                <input type="text" id="user_name">
                 
-                <input type="text" id="user_nick">
+                <label for="user_name">Nome*</label>
+                <input type="text" id="user_name" class="align">
+                <br>
                 
-                <input type="email" id="user_email">
+                <label for="user_name">Sobrenome*</label>
+                <input type="text" id="user_lastname" class="align">
+                <br>
+
+                <label for="user_nick">Nome de usuário*</label>
+                <input type="text" id="user_nick" class="align">
+                <br>
                 
-                <div class="row">
-                    <input type="password" id="pass_box">
-                    <img src="images/icons/view.png" class="icon eye" onclick="pass_view()">
-                </div>
+                <label for="user_email">E-mail*</label>
+                <input type="email" id="user_email" class="align">
+                <br>
+
+                <label for="pass_box">Senha*</label>
+                <input type="text" id="pass_box" class="align">
+
                 
             </div>
             
-            <div class="column right align">
+            <div class="column block align cem">
 
+                <label for="user_bday">Data de nascimento*</label>
+                <input type="date" id="user_bday" class="align">
+                <br>
+
+                <label for="user_num">Numero de telefone</label>
+                <input type="int" id="user_num" class="align">
+                <br>
+
+                <label for="user_cpf">CPF*</label>
+                <input type="email" id="user_email" class="align">
+                <br>
+
+                
             </div>
 
         </div>
