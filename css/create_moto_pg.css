@@ -1,33 +1,3 @@
-.block_bk{
-    width: 900px;
-    height: 450px;
-
-    background-color: #2F3D40;
-
-    transform: translate(0, 50%);
-    border-radius: 50px;
-}
-.line{
-    width: 80%;
-    height: 1px;
-    background-color: black;
-
-}
-
-.block{
-    width: 40%;
-    margin-top: 3%;
-    margin-left: 8%;
-    margin-right: 8%;
-}
-
-.block_bk input{ 
-    background-color: #507D72;
-    height: 25px;
-    border-style: none;
-    border-radius: 5px;
-} 
-
 .block_bk select{
     background-color: #507D72;
     height: 27px;
@@ -55,13 +25,6 @@
     color: aliceblue;
     
     
-}
-
-.return{
-    width: 30px;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 20px;
 }
 
 #desc{

@@ -52,3 +52,47 @@ body{
 .cem{
     width: 100%
 }
+
+.block_bk{
+    width: 900px;
+    height: 450px;
+
+    background-color: #2F3D40;
+
+    transform: translate(0, 40%);
+    border-radius: 50px;
+}
+
+.line{
+    width: 80%;
+    height: 1px;
+    background-color: black;
+}
+
+.block_bk input{ 
+    background-color: #507D72;
+    height: 25px;
+    border-style: none;
+    border-radius: 5px;
+} 
+
+.return{
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.left{
+    width: 40%;
+    height: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.right{
+    width: 40%;
+    height: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
