@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/config.css">
     <link rel="stylesheet" href="css/add_desc_pg.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
@@ -16,31 +15,31 @@
 
         <div class="row cem text_align">
             
-            <img src="images/icons/arrow.png" class="return" onclick="button_test('hue');">
+            <img src="images/icons/arrow.png" class="return" onclick="pag_up('moto_perfil_pg.html');">
         
-            <h2 style="width: 90%;">NOVA MOTO</h2>
+            <h2 style="width: 90%;">NOVA NOTA</h2>
 
         </div>
 
         <div class="align line"></div>
 
-        <div class="row block_bottom ">
-            <div class="column left">
+        <div class="row">
+            <div class="column block" style="margin-top: 0px;">
                 <h3 class="title">Descrição*</h3>
-                <textarea class="desc input" cols="30" rows="10"></textarea>
+                <textarea class="desc input"></textarea>
             </div>
 
-            <div class="column right">
+            <div class="column block" style="margin-top: 0px;">
 
                 <div class="row top_right align">
                     <div class="column con1">
                         <label for="price" class="label"><h4 class="title">Preço*:</h4></label>
-                        <input type="int" class="input2" id="price">
+                        <input type="int" class="input2" style="width: 140px;" id="price">
                     </div>
                     
                     <div class="column con2">
                         <label for="type" class="label"> <h4 class="title">Tipo da manutenção*:</h4></label>
-                        <select id="type" class="input2">
+                        <select id="type" class="input2" style="width: 180px;">
                             <option value="null">Escolha a sua opção*</option>
                             <option value="prev">Preventiva</option>
                             <option value="corre">Corretiva</option>
@@ -59,7 +58,6 @@
 
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="js/js_login_1.js"></script>
 </body>
 </html>

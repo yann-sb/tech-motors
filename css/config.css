@@ -98,3 +98,20 @@ body{
     border-style: none;
     border-radius: 5px
 }
+
+.create{
+    height: 30px;
+    width: 100px;
+
+    margin-top: 15px;
+
+    background-color: #2F3D40;
+    border-radius: 10px;
+    border-color: #507D72;
+    border-style: solid;
+    border-width: 3px; 
+
+    color: aliceblue;
+    
+    
+}
