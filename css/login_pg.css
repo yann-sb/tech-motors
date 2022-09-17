@@ -1,6 +1,8 @@
 /*configuração do titulo*/
 .left h2{
     color: #6CAB9C;
+    margin: 0px;
+    font-size: 35px;
 }
 
 
@@ -46,12 +48,6 @@
     font-weight: bold;
 }
 
-/*icone de vuzualizar/ocultar senha*/
-.eye{
-    margin-left: 10px;
-    margin-right: -5px;
-}
-
 /*logo :)*/
 #logo{
     margin-top: 60PX;
@@ -61,4 +57,14 @@
 .rigth{
 
     background-color: red;
+}
+
+.in{
+    background-color: aliceblue;
+    width: 220px;
+    height: 50px;
+}
+
+.in input{
+    background-color: aliceblue;
 }
