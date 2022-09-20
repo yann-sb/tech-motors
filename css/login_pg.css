@@ -73,3 +73,21 @@
     background-color: aliceblue;
     border-style: none;
 }
+
+.but{
+    background-color:#2F3D40;
+    height: 40px;
+    width: 170px;
+
+    font-family: 'lato';
+    color: aliceblue;
+    font-size: 20px;
+
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #507D72;
+}
+
+.full{
+    background-color: #507D72;
+}
