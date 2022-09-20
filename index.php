@@ -1,16 +1,3 @@
-<?php
-
-include("conexao.php");
-
-$select = "select user_name from usuario where user_id='1"
-
-$return = $mysql ->query($select)
-
-$id = $return
-
-echo $id
-?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -71,3 +58,26 @@ echo $id
 <script src="js/js_login_1.js"></script>
 </body>
 </html>
+
+
+<?php
+$hostname = "localhost";
+$bancodedados = "tech_motors";
+$usuario = "root";
+$senha = "";
+
+$mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
+if($mysqli->connect_errno){
+    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
+} 
+
+$sql = "INSERT INTO usuario (user_rank,user_nick,user_pass,user_cpf) VALUES ('adm', 'adm','adm_1234', '11122233345')";
+
+
+/* $sql = "SELECT user_name FROM usuario WHERE user_id='1'" */
+$result = $mysqli->query($sql);
+
+echo $result;
+
+echo $result;
+?>
