@@ -1,11 +1,14 @@
 <?php
 
-    $pdo = new PDO('mysql:host=localhost;dbname=tech_motors','root','');
+date_default_timezone_set('America/Sao_Paulo');
 
-    $sql = $pdo->prepare("SELECT * FROM usuario WHERE user_id=1");
-
-    $sql->execute();
-
-    echo $sql;
+// CONEXÃO COM A BASE DE DADOS: verifique sempre o dbname
+try{
+    $pdo = new PDO("mysql:dbname=tech_motors;host=localhost;charset=utf8","root","");
+}
+catch(PDOException $erro)
+{
+    echo("ERRO NA CONEXÃO: <br>".$erro->getMessage());
+}
     
 ?>

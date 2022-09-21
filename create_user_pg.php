@@ -1,16 +1,7 @@
 <?php 
 
-    $pdo = new PDO('mysql:host=localhost;dbname=tech_motors','root','');
-
-    $sql = $pdo->prepare("SELECT * FROM 'usuario'")
-
-    $sql->execute();
-
-    $info = $sql->fetchAll();
-
-    echo '<prev>'
-    print_r($info); 
-    echo '</prev'
+   include("conexao.php");
+   
 ?>
 
 
@@ -29,63 +20,67 @@
     
     <div class="column block_bk align pg1">
         
-        <div class="row cem text_align">
-            
-            <img src="images/icons/arrow.png" class="return" onclick="pag_up('login_pg.html');">
-        
-            <h2 style="width: 90%;">CADASTRO</h2>
+        <form action="inserir.php" method="post">
+            <div class="row cem text_align">
 
-        </div>
+                <img src="images/icons/arrow.png" class="return" onclick="pag_up('login_pg.html');">
 
-        <div class="line align"></div>
+                <h2 style="width: 90%;">CADASTRO</h2>
 
-        <div class="row cem">
-
-            <div class="column align" style="margin-top: 3%;">
-        
-                <label for="user_name">Nome*</label>
-                <input type="text" id="user_name" class="align">
-                <br>
-
-                <label for="user_nick">Nome de usuário*</label>
-                <input type="text" id="user_nick" class="align">
-                <br>
-                
-                <label for="user_email">E-mail*</label>
-                <input type="email" id="user_email" class="align">
-                <br>
-
-                <label for="user_num">Numero de telefone</label>
-                <input type="int" id="user_num" class="align">
-                
-                
-            </div>
-            
-            <div class="column align" style="margin-top: 3%;">
-
-                <label for="user_name">Sobrenome*</label>
-                <input type="text" id="user_lastname" class="align">
-                <br>
-
-                <label for="user_bday">Data de nascimento*</label>
-                <input type="date" style="margin-left:0px;" id="user_bday" class="align">
-                <br>
-
-                <label for="pass_box">Senha*</label>
-                <input type="text" id="pass_box" class="align">
-                <br>
-
-                <label for="user_cpf">CPF*</label>
-                <input type="email" id="user_email" class="align">
-                <br>
-
-                
             </div>
 
-        </div>
+            <div class="line align"></div>
 
-        <button class="create align" onclick="button_test('foi');">Criar conta</button>
+            <div class="row cem">
 
+                <div class="column align" style="margin-top: 3%;">
+
+                    <label for="user_name">Nome*</label>
+                    <input type="text" name="user_name" class="align">
+                    <br>
+
+                    <label for="user_nick">Nome de usuário*</label>
+                    <input type="text" name="user_nick" class="align">
+                    <br>
+
+                    <label for="user_email">E-mail*</label>
+                    <input type="email" name="user_email" class="align">
+                    <br>
+
+                    <label for="user_num">Numero de telefone</label>
+                    <input type="int" name="user_num" class="align">
+
+
+                </div>
+
+                <div class="column align" style="margin-top: 3%;">
+
+                    <label for="user_name">Sobrenome*</label>
+                    <input type="text" name="user_lastname" class="align">
+                    <br>
+
+                    <label for="user_bday">Data de nascimento*</label>
+                    <input type="date" style="margin-left:0px;" name="user_bday" class="align">
+                    <br>
+
+                    <label for="pass_box">Senha*</label>
+                    <input type="text" name="pass_box" class="align">
+                    <br>
+
+                    <label for="user_cpf">CPF*</label>
+                    <input type="email" name="user_cpf" class="align">
+                    <br>
+
+                
+                  
+                </div>
+
+            </div>
+
+        
+            <input type="submit" class="create align" value="Criar conta">
+            <button  onclick="button_test('foi');"></button>
+        </form>
     </div>
     
     <script src="js/js_login_1.js"></script>
