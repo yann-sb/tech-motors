@@ -1,10 +1,19 @@
-
 create database tech_motors;
 use tech_motors;
 
+create table rank_cod(
+rank_id int auto_increment primary key,
+rank_name varchar(5) not null,
+constraint un_rank_name unique (rank_name)
+);
+insert into rank_cod(rank_name) values("owner");
+insert into rank_cod(rank_name) values("adm");
+insert into rank_cod(rank_name) values("user");
+
+
 create table usuario(
 user_id int auto_increment primary key,
-user_rank varchar(5) not null,
+user_rank int not null,
 user_name varchar(30),
 user_last_name varchar(30),
 user_nick varchar(30) not null,
@@ -16,7 +25,8 @@ user_cpf char(11) not null,
 
 constraint un_user_nick unique(user_nick),
 constraint un_user_mail unique(user_mail),
-constraint un_user_cpf unique(user_cpf)
+constraint un_user_cpf unique(user_cpf),
+constraint fk_user_rank_id foreign key(user_rank) references rank_cod(rank_id)
 );
 
 create table brand(
@@ -81,4 +91,4 @@ constraint fk_service_moto_id foreign key(moto_id) references moto_user(moto_id)
 );
 
 
-insert into usuario(user_rank,user_nick,user_pass,user_cpf) values("owner","Owner acount","owner_1234","11122233345");
+insert into usuario(user_rank,user_nick,user_pass,user_cpf) values("1","Owner acount","owner_1234","11122233345");
