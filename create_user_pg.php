@@ -20,7 +20,7 @@
     
     <div class="column block_bk align pg1">
         
-        <form action="inserir.php" method="post">
+        <form action="inserir_of.php" method="post">
             <div class="row cem text_align">
 
                 <img src="images/icons/arrow.png" class="return" onclick="pag_up('login_pg.html');">
@@ -68,7 +68,7 @@
                     <br>
 
                     <label for="user_cpf">CPF*</label>
-                    <input type="email" name="user_cpf" class="align">
+                    <input type="int" name="user_cpf" class="align">
                     <br>
 
                 
