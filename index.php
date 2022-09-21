@@ -1,12 +1,19 @@
 <?php
 
-include("conexao.php");
+$hostname = "localhost";
+$bancodedados = "tech_motors";
+$usuario = "root";
+$senha = "";
 
-$sql = "SELECT * FROM usuario WHERE user_id='1'"
+$mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
+if($mysqli->connect_errno){
+    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
+} 
+
+$sql = sprintf("SELECT * FROM usuario WHERE user_id='1'");
 
 $id = $mysqli->query($sql);
 
-echo $id;
 
 ?>
 

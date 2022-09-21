@@ -1,12 +1,11 @@
 <?php
 
-$hostname = "localhost";
-$bancodedados = "tech_motors";
-$usuario = "root";
-$senha = "";
+    $pdo = new PDO('mysql:host=localhost;dbname=tech_motors','root','');
 
-$mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
-if($mysqli->connect_errno){
-    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
-} 
+    $sql = $pdo->prepare("SELECT * FROM usuario WHERE user_id=1");
 
+    $sql->execute();
+
+    echo $sql;
+    
+?>
