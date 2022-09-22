@@ -22,6 +22,6 @@
     $comando->bindValue(":cpf",$cpf);
     $comando->execute();
 
-    echo("dados gravados");
+    echo pag_up('index.php')
 
 ?>

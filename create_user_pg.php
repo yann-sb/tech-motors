@@ -1,3 +1,4 @@
+''
 <?php 
 
    include("conexao.php");
@@ -14,13 +15,19 @@
     <link rel="stylesheet" href="css/config.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <title>Cadastro</title>
-
+    <style>
+        .block_bk input{
+            height: 30px;
+            width: 200px;
+        }
+    </style>
 </head>
-<body>
-    
+<body> 
+      
     <div class="column block_bk align pg1">
         
-        <form action="inserir_of.php" method="post">
+        
+        <form action="inserir_of.php" method="post" class="column">
             <div class="row cem text_align">
 
                 <img src="images/icons/arrow.png" class="return" onclick="pag_up('login_pg.html');">
@@ -60,7 +67,7 @@
                     <br>
 
                     <label for="user_bday">Data de nascimento*</label>
-                    <input type="date" style="margin-left:0px;" name="user_bday" class="align">
+                    <input type="date" name="user_bday" class="align">
                     <br>
 
                     <label for="pass_box">Senha*</label>
@@ -70,16 +77,11 @@
                     <label for="user_cpf">CPF*</label>
                     <input type="int" name="user_cpf" class="align">
                     <br>
-
-                
-                  
                 </div>
 
             </div>
-
-        
-            <input type="submit" class="create align" value="Criar conta">
-            <button  onclick="button_test('foi');"></button>
+            <input type="submit" class="create align"value="Criar conta">
+            
         </form>
     </div>
     
