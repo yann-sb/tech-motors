@@ -30,7 +30,7 @@
         <form action="inserir_of.php" method="post" class="column">
             <div class="row cem text_align">
 
-                <img src="images/icons/arrow.png" class="return" onclick="pag_up('login_pg.html');">
+                <img src="images/icons/arrow.png" class="return" onclick="pag_up('index.php');">
 
                 <h2 style="width: 90%;">CADASTRO</h2>
 

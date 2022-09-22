@@ -1,19 +1,6 @@
 <?php
 
-$hostname = "localhost";
-$bancodedados = "tech_motors";
-$usuario = "root";
-$senha = "";
-
-$mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
-if($mysqli->connect_errno){
-    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
-} 
-
-$sql = sprintf("SELECT * FROM usuario WHERE user_id='1'");
-
-$id = $mysqli->query($sql);
-
+include("conexao.php")
 
 ?>
 
@@ -56,17 +43,19 @@ $id = $mysqli->query($sql);
                     <div class="row align">
                         <img src="images/icons/pass.png" class="icon top">
                         <div class="in">
-                            <input type="password" placeholder="Senha" id="pass_box">
+                            <input type="password" placeholder="Senha" id="pass_box" name="pass_box">
                             <img src="images/icons/view_pto.png" style="margin-bottom: -13px;" onclick="pass_view();">
                         </div>
                     </div>
                     <div class="align" style="padding-left:30px">
                         <br>
-                        <input type="submit" class="but full align text_align" value="Acessar conta">
                         <br><br>
+                        <input type="submit" class="but full align text_align" value="Acessar conta">
+                </form>
+                    <br><br>
                         <button class="but align text_align" onclick="pag_up('create_user_pg.php');"><p class="top">Criar conta</p></button>
                     </div>
-                </form>
+                
 
             </div>
 
