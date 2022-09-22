@@ -51,11 +51,9 @@ include("conexao.php")
                         <br>
                         <br><br>
                         <input type="submit" class="but full align text_align" value="Acessar conta">
-                </form>
-                    <br><br>
                         <button class="but align text_align" onclick="pag_up('create_user_pg.php');"><p class="top">Criar conta</p></button>
                     </div>
-                
+                </form>
 
             </div>
 
