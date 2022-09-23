@@ -29,25 +29,6 @@
     
 }
 
-/*botão de acessar conta*/
-.access{
-    background-color: #507D72;
-    border-style: none;
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-/*botão de criar conta*/
-#create{
-    background-color: #455559;
-    border-style: solid;
-    border-color: #507D72;
-    font-size: 25px;
-    font-weight: bold;
-}
-
 /*logo :)*/
 #logo{
     margin-top: 60PX;
@@ -76,7 +57,7 @@
 
 .but{
     background-color:#2F3D40;
-    height: 40px;
+    height: 80px;
     width: 170px;
 
     font-family: 'lato';

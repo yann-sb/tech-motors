@@ -48,10 +48,10 @@ include("conexao.php")
                         </div>
                     </div>
                     <div class="align" style="padding-left:30px">
-                        <br>
                         <br><br>
-                        <input type="submit" class="but full align text_align" value="Acessar conta">
-                        <button class="but align text_align" onclick="pag_up('create_user_pg.php');"><p class="top">Criar conta</p></button>
+                        <input type="submit" class="but full align text_align" style="margin-left:23px; height:40px; border-radius:10px" value="Acessar conta">
+                        <br><br><br>
+                        <div class="but align text_align" onclick="pag_up('create_user_pg.php');"><p class="top" style="margin-top:5px">Criar conta</p></div>
                     </div>
                 </form>
 

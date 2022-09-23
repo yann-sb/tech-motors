@@ -5,29 +5,23 @@
     $nick = $_POST["name_mail"];
     $pass = $_POST["pass_box"];
  
-    $sql = "SELECT user_pass FROM usuario WHERE user_nick='$nick'";
+    if($nick==null){
+        echo pag_up('index.php');
+    }elseif($pass==null){
+        echo pag_up('index.php');
+    }else{
 
-     $result = $pdo->query($sql)->fetch(); 
+        $sql = "SELECT user_pass FROM usuario WHERE user_nick='$nick'";
 
+        $result = $pdo->query($sql)->fetch(); 
 
-    /* $result = $pdo->($sql); */
+        if($result[0]==$pass){
+            echo "fooooiiiii";
+        }else{
+            echo "n foi dessa vez ;)";
+        }
 
-    /*$result = $pdo->execute($sql); */
-    
-/*     $result = $pdo->mysql_query($sql); */
-    
-    /* $result = $pdo->mysql_query("SELECT user_pass FROM usuario WHERE user_nick=$nick"); */ 
-    
-    $rest = implode($result);
-    echo $rest; 
-
-/* 
-    if($result!=$pass){
-        echo "n foi dessa vez;)";
     }
-    else
-        echo "foiiiiiiiiiiii";
- */
 
-
+    
 ?> 
