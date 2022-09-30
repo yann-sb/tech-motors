@@ -6,7 +6,7 @@
     $sobre = $_POST["user_lastname"];
     $nick = $_POST["user_nick"];
     $email = $_POST["user_email"];
-    $pass = MD5$_POST["pass_box"];
+    $pass = base64_encode($_POST["pass_box"]);
     $bday = $_POST["user_bday"];
     $num = $_POST["user_num"];
     $cpf = $_POST["user_cpf"];
@@ -22,6 +22,9 @@
     $comando->bindValue(":cpf",$cpf);
     $comando->execute();
 
+    print_r($pass);
+    echo("<br>");
+    print_r(base64_decode($pass));
 
     /* echo pag_up('index.php') */
 
