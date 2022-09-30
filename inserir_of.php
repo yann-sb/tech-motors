@@ -6,7 +6,7 @@
     $sobre = $_POST["user_lastname"];
     $nick = $_POST["user_nick"];
     $email = $_POST["user_email"];
-    $pass = $_POST["pass_box"];
+    $pass = MD5$_POST["pass_box"];
     $bday = $_POST["user_bday"];
     $num = $_POST["user_num"];
     $cpf = $_POST["user_cpf"];
@@ -22,6 +22,7 @@
     $comando->bindValue(":cpf",$cpf);
     $comando->execute();
 
-    echo pag_up('index.php')
+
+    /* echo pag_up('index.php') */
 
 ?>
