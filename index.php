@@ -51,7 +51,7 @@ include("conexao.php")
                         <br><br>
                         <input type="submit" class="but full align text_align" style="margin-left:23px; height:40px; border-radius:10px" value="Acessar conta">
                         <br><br><br>
-                        <div class="but align text_align" onclick="pag_up('create_user_pg.php');"><p class="top" style="margin-top:5px">Criar conta</p></div>
+                        <div class="but align text_align" onclick="pag_up('create_user_pg.php');" style="height:40px" ><p class="top" style="margin-top:5px">Criar conta</p></div>
                     </div>
                 </form>
 
