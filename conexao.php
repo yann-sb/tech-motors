@@ -1,12 +1,20 @@
 <?php
 
-$hostname = "localhost";
-$bancodedados = "tech_motors";
-$usuario = "root";
-$senha = "";
+date_default_timezone_set('America/Sao_Paulo');
 
-$mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
-if($mysqli->connect_errno){
-    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
-} 
+try{
+    $pdo = new PDO("mysql:dbname=tech_motors;host=localhost;charset=utf8","root","");
+}
+catch(PDOException $erro)
+{
+    echo("ERRO NA CONEXÃO: <br>".$erro->getMessage());
+}
+    
 
+function pag_up($link){
+    header("location: $link");
+};
+
+
+
+?>

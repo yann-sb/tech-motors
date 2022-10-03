@@ -1,3 +1,13 @@
+<?php
+$hostname = "localhost";
+$bancodedados = "tech_motors";
+$usuario = "root";
+$senha = "";
+
+include("conexao.php")
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,14 +16,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/config.css">
     <link rel="stylesheet" href="css/login_pg.css">
-    <link rel="" href="">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
 
     <div class="block_bk row left align">
-
+        
             <div class="column align title block">
                 
                 <br>
@@ -26,58 +35,35 @@
 
             <div class="column block align right">
                 <h1 class="text_align" style="margin-left:30px; color: aliceblue;">Acessar conta</h1>
-
-                <div class="row align">
-                    <img src="images/icons/user.png" class="icon top">
-                    <div class="in">
-                        <input type="text" placeholder="Nome de usuário ou E-mail" id="name_mail">
+                
+                <form action="verify.php" method="post" class="align">
+                    <div class="row align">
+                        <img src="images/icons/user.png" class="icon top">
+                        <div class="in">
+                            <input type="text" placeholder="Nome de usuário ou E-mail" name="name_mail">
+                        </div>
                     </div>
-                </div>
-                <br><br>
-                <div class="row align">
-                    <img src="images/icons/pass.png" class="icon top">
-                    <div class="in">
-                        <input type="password" placeholder="Senha" id="pass_box">
-                        <img src="images/icons/view_pto.png" style="margin-bottom: -13px;" onclick="pass_view();">
-                    </div>
-                </div>
-                <div class="align" style="padding-left:30px">
-                    <br>
-                    <button class="but full align text_align"><p class="top">Acessar conta</p></button>
                     <br><br>
-                    <button class="but align text_align" onclick="pag_up('create_user_pg.html');"><p class="top">Criar conta</p></button>
-                </div>
+                    <div class="row align">
+                        <img src="images/icons/pass.png" class="icon top">
+                        <div class="in">
+                            <input type="password" placeholder="Senha" id="pass_box" name="pass_box">
+                            <img src="images/icons/view_pto.png" style="margin-bottom: -13px;" onclick="pass_view();">
+                        </div>
+                    </div>
+                    <div class="align" style="padding-left:30px">
+                        <br><br>
+                        <input type="submit" class="but full align text_align" style="margin-left:23px; height:40px; border-radius:10px" value="Acessar conta">
+                        <br><br><br>
+                        <div class="but align text_align" onclick="pag_up('create_user_pg.html');" style="height:35px" ><p class="top" style="margin-top:5px">Criar conta</p></div>
+                    </div>
+                </form>
 
             </div>
 
     </div>
 
 
-
-<script src="index.php"></script>
 <script src="js/js_login_1.js"></script>
 </body>
 </html>
-
-
-<?php
-$hostname = "localhost";
-$bancodedados = "tech_motors";
-$usuario = "root";
-$senha = "";
-
-$mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
-if($mysqli->connect_errno){
-    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_errno;
-} 
-
-$sql = "INSERT INTO usuario (user_rank,user_nick,user_pass,user_cpf) VALUES ('adm', 'adm','adm_1234', '11122233345')";
-
-
-/* $sql = "SELECT user_name FROM usuario WHERE user_id='1'" */
-$result = $mysqli->query($sql);
-
-echo $result;
-
-echo $result;
-?>
