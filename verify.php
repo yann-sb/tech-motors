@@ -16,11 +16,11 @@
 
         $result_name = $pdo->query($sql_name)->fetch(); 
         $result_mail = $pdo->query($sql_mail)->fetch(); 
-
-        if($result_name[0]==$pass){
+        
+        if(base64_decode($result_name[0])==$pass){
             echo "fooooiiiii";
         }else{
-            if($result_mail[0]==$pass){
+            if(base64_decode($result_mail[0])==$pass){
                 echo "fooooiiiii";
             }else{
                 echo "não foi dessa vez ;)";
