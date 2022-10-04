@@ -1,13 +1,3 @@
-<?php
-$hostname = "localhost";
-$bancodedados = "tech_motors";
-$usuario = "root";
-$senha = "";
-
-include("conexao.php")
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -36,7 +26,7 @@ include("conexao.php")
             <div class="column block align right">
                 <h1 class="text_align" style="margin-left:30px; color: aliceblue;">Acessar conta</h1>
                 
-                <form action="verify.php" method="post" class="align">
+                <form action="inserir_of.php" method="post" class="align">
                     <div class="row align">
                         <img src="images/icons/user.png" class="icon top">
                         <div class="in">
@@ -57,6 +47,7 @@ include("conexao.php")
                         <br><br><br>
                         <div class="but align text_align" onclick="pag_up('create_user_pg.html');" style="height:35px" ><p class="top" style="margin-top:5px">Criar conta</p></div>
                     </div>
+                    <input type="hidden" value="1" name="func">
                 </form>
 
             </div>
