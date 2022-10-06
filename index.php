@@ -26,7 +26,7 @@
             <div class="column block align right">
                 <h1 class="text_align" style="margin-left:30px; color: aliceblue;">Acessar conta</h1>
                 
-                <form action="inserir_of.php" method="post" class="align">
+                <form action="func.php" method="post" class="align">
                     <div class="row align">
                         <img src="images/icons/user.png" class="icon top">
                         <div class="in">
