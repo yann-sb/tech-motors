@@ -60,7 +60,18 @@
         echo pag_up('index.php');
     }
 
+if($func=="3"){
 
+    $save;
+
+    $brand = $_POST["brand"];
+    $model = $_POST["model"];
+    $oil = $_POST["oil"];
+
+
+
+
+};
 
 
 
