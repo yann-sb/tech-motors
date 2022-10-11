@@ -62,15 +62,21 @@
 
 if($func=="3"){
 
-    $save;
-
     $brand = $_POST["brand"];
-    $model = $_POST["model"];
     $oil = $_POST["oil"];
 
+    if ($oil!=null) {
+        $comando = $pdo->prepare("INSERT INTO oil_cod(oil_cod) VALUES(:oil)");
+        $comando->bindValue(":oil",$oil);
+        $comando->execute();
+    }
 
-
-
+    if ($brand!=null) {
+        $comando = $pdo->prepare("INSERT INTO brand(brand_name) VALUES(:brand)");
+        $comando->bindValue(":brand",$brand);
+        $comando->execute();
+    }
+    
 };
 
 
