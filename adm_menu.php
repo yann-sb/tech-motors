@@ -8,6 +8,20 @@
     <title>Document</title>
 </head>
 <body> 
+
+        <?php 
+            include("conexao.php");
+            $comando = $pdo->prepare("SELECT oil_cod FROM oil");
+            $resultado = $comando->execute();
+            $i = count($resultado);
+            
+            while ($i > 0) {
+                $result = $resultado[$i];
+                echo("$result");
+                $i = $i-1;
+            };
+            
+        ?>
     
     <div class="align block_bk column">
         <form action="func.php" method="post">
@@ -31,20 +45,8 @@
                 <input type="text" id="model_name" name="model_name">
 
                 <select id="cidades" name="cidades">
-                <option>Selecione...</option>
-                <?php 
-                    include("conexao.php");
-                    $comando = $pdo->prepare("SELECT oil_cod FROM oil");
-                    $comando->execute();
-                    $i = count($comando);
-                    
-                    while ($i > 0) {
-                        $result = $comando[$i];
-                        echo("<option>$result</option>");
-                        $i = $i-1;
-                    };
-                    echo("</section>");
-                ?>
+                    <option>Selecione...</option>
+                </select>
                 
 
                 <label for="brand">MARCA</label>
@@ -68,7 +70,6 @@
 
 
     </div>
-
 
 </body>
 </html>
