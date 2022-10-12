@@ -58,26 +58,28 @@
         $comando->execute();
 
         echo pag_up('index.php');
-    }
+    };
 
-if($func=="3"){
+    if($func=="3"){
 
-    $brand = $_POST["brand"];
-    $oil = $_POST["oil"];
-
-    if ($oil!=null) {
-        $comando = $pdo->prepare("INSERT INTO oil_cod(oil_cod) VALUES(:oil)");
-        $comando->bindValue(":oil",$oil);
-        $comando->execute();
-    }
-
-    if ($brand!=null) {
-        $comando = $pdo->prepare("INSERT INTO brand(brand_name) VALUES(:brand)");
-        $comando->bindValue(":brand",$brand);
-        $comando->execute();
-    }
+        $brand = $_POST["brand"];
+        $oil = $_POST["oil"];
     
-};
+        if ($oil!=null) {
+            $comando = $pdo->prepare("INSERT INTO oil_cod(oil_cod) VALUES(:oil)");
+            $comando->bindValue(":oil",$oil);
+            $comando->execute();
+            echo pag_up('adm_menu.php');
+        }
+    
+        if ($brand!=null) {
+            $comando = $pdo->prepare("INSERT INTO brand(brand_name) VALUES(:brand)");
+            $comando->bindValue(":brand",$brand);
+            $comando->execute();
+        }        
+
+    };
+
 
 
 

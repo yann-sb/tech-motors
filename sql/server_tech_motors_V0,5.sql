@@ -42,23 +42,16 @@ insert into brand(brand_name) values("Kawasaki");
 insert into brand(brand_name) values("KTM");
 insert into brand(brand_name) values("Yamaha");
 
-
 create table oil_cod(
 oil_id int auto_increment primary key,
 oil_cod varchar(10) not null,
-oil_type varchar(20) not null,
 
-constraint un_oil_type unique (oil_type),
 constraint un_oil_cod unique (oil_cod)
 );
 insert into oil_cod(oil_cod) values("15W50");
 insert into oil_cod(oil_cod) values("10W40");
 insert into oil_cod(oil_cod) values("10W30");
 insert into oil_cod(oil_cod) values("20W50");
-
-insert into oil_cod(oil_type) values("Sintético");
-insert into oil_cod(oil_type) values("Semissintético");
-insert into oil_cod(oil_type) values("Mineral");
 
 create table model(
 model_id int auto_increment primary key,

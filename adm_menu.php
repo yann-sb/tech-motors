@@ -1,3 +1,23 @@
+    <?php  
+    include("conexao.php");
+    ?>
+
+    <?php 
+            $comando ="SELECT oil_cod FROM oil_cod";
+            $resultado_oil = $pdo->query($comando)->fetchAll(); 
+            $count = count($resultado_oil);
+            
+            $i_oil = $count -1;        
+    ?>
+
+    <?php 
+            $comando ="SELECT brand_name FROM brand";
+            $resultado_brand = $pdo->query($comando)->fetchAll(); 
+            $count = count($resultado_brand);
+            
+            $i_brand = $count -1;        
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,30 +29,18 @@
 </head>
 <body> 
 
-        <?php 
-            include("conexao.php");
-            $comando = $pdo->prepare("SELECT oil_cod FROM oil");
-            $resultado = $comando->execute();
-            $i = count($resultado);
-            
-            while ($i > 0) {
-                $result = $resultado[$i];
-                echo("$result");
-                $i = $i-1;
-            };
-            
-        ?>
+       
     
     <div class="align block_bk column">
         <form action="func.php" method="post">
 
             <div>
 
-                <label for="brand">MARCA</label>
+                <label for="brand_add">MARCA</label>
                 <input type="text" id="brand" name="brand">
                 
-                <label for="oil">ÓLEO</label>
-                <input type="text" id="oil" name="oil">
+                <label for="oil_add">ÓLEO</label>
+                <input type="text" id="oil_add" name="oil_add">
                 
                 <input type="hidden" name="func" value="3">
                 
@@ -44,14 +52,34 @@
                 <label for="brand">Nome do modelo</label>
                 <input type="text" id="model_name" name="model_name">
 
-                <select id="cidades" name="cidades">
+                <label for="oil">Nome do modelo</label>
+                <select id="oil" name="oil">
                     <option>Selecione...</option>
+                    <?php
+
+                        while ($i_oil >= 0) {
+                            $result = $resultado_oil[$i_oil];
+                            print_r("<option>$result[0]</option>");
+                            $i_oil = $i_oil-1;
+                        }; 
+
+                    ?>
                 </select>
                 
+                <label for="brand">Marca</label>
+                <select id="brand" name="brand">
+                    <option>Selecione...</option>
+                    <?php
 
-                <label for="brand">MARCA</label>
-                <input type="text" id="oil_km" name="oil_km">
-                
+                        while ($i_brand >= 0) {
+                            $result = $resultado_brand[$i_brand];
+                            print_r("<option>$result[0]</option>");
+                            $i_brand = $i_brand-1;
+                        }; 
+
+                    ?>
+                </select>
+
                 <label for="brand">MARCA</label>
                 <input type="text" id="oil_id" name="oil_id">
 
