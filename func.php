@@ -62,23 +62,61 @@
 
     if($func=="3"){
 
-        $brand = $_POST["brand"];
-        $oil = $_POST["oil"];
+        $brand_add = $_POST["brand"];
+        $oil_add = $_POST["oil"];
     
-        if ($oil!=null) {
+        if ($oil_add!=null) {
             $comando = $pdo->prepare("INSERT INTO oil_cod(oil_cod) VALUES(:oil)");
-            $comando->bindValue(":oil",$oil);
+            $comando->bindValue(":oil",$oil_add);
             $comando->execute();
             echo pag_up('adm_menu.php');
         }
     
-        if ($brand!=null) {
+        if ($brand_add!=null) {
             $comando = $pdo->prepare("INSERT INTO brand(brand_name) VALUES(:brand)");
-            $comando->bindValue(":brand",$brand);
+            $comando->bindValue(":brand",$brand_add);
             $comando->execute();
+            echo pag_up('adm_menu.php');
         }        
 
+        
     };
+
+    if($func=="4"){
+
+        $brand = $_POST["brand"];
+        $oil = $_POST["oil"];
+        $model_name = $_POST["model_name"];
+        $oil_km = $_POST["oil_km"];
+        $model_cc = $_POST["model_cc"];
+
+        $sql_oil = "SELECT oil_id FROM oil_cod WHERE oil_cod='$oil'";
+
+        $result_oil = $pdo->query($sql_oil)->fetch();  
+
+        $sql_brand = "SELECT brand_id FROM brand WHERE brand_name='$brand'";
+
+        $result_brand = $pdo->query($sql_brand)->fetch(); 
+
+
+        if($brand!=null && $model_cc!=null && $oil!=null && $model_name!=null && $oil_km!=null){
+            $comando = $pdo->prepare("INSERT INTO model(model_name,model_cc,model_oil_km,oil_id,brand_id) VALUES(:model_name,:model_cc,:model_oil_km,:oil_id,:brand_id)");
+            $comando->bindValue(":model_name",$model_name);
+            $comando->bindValue(":model_cc",$model_cc);
+            $comando->bindValue(":model_oil_km",$oil_km);
+            $comando->bindValue(":oil_id",$result_oil[0]);
+            $comando->bindValue(":brand_id",$result_brand[0]);
+            $comando->execute();
+            echo pag_up('adm_menu.php');
+            
+        } 
+
+
+        echo $result_oil[0];
+        echo "<br>";
+        echo $result_brand[0];
+
+    }
 
 
 

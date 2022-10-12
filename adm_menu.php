@@ -34,67 +34,62 @@
     <div class="align block_bk column">
         <form action="func.php" method="post">
 
-            <div>
-
-                <label for="brand_add">MARCA</label>
-                <input type="text" id="brand" name="brand">
-                
-                <label for="oil_add">ÓLEO</label>
-                <input type="text" id="oil_add" name="oil_add">
-                
-                <input type="hidden" name="func" value="3">
-                
-                
+            <label for="brand_add">MARCA</label>
+            <input type="text" id="brand" name="brand">
             
-            </div>
-            <br><br>
-            <div>
-                <label for="brand">Nome do modelo</label>
-                <input type="text" id="model_name" name="model_name">
-
-                <label for="oil">Nome do modelo</label>
-                <select id="oil" name="oil">
-                    <option>Selecione...</option>
-                    <?php
-
-                        while ($i_oil >= 0) {
-                            $result = $resultado_oil[$i_oil];
-                            print_r("<option>$result[0]</option>");
-                            $i_oil = $i_oil-1;
-                        }; 
-
-                    ?>
-                </select>
-                
-                <label for="brand">Marca</label>
-                <select id="brand" name="brand">
-                    <option>Selecione...</option>
-                    <?php
-
-                        while ($i_brand >= 0) {
-                            $result = $resultado_brand[$i_brand];
-                            print_r("<option>$result[0]</option>");
-                            $i_brand = $i_brand-1;
-                        }; 
-
-                    ?>
-                </select>
-
-                <label for="brand">MARCA</label>
-                <input type="text" id="oil_id" name="oil_id">
-
-                <label for="brand">MARCA</label>
-                <input type="text" id="brand_id" name="brand_id">
-
-
-                
-
-            </div>
+            <label for="oil_add">ÓLEO</label>
+            <input type="text" id="oil_add" name="oil_add">
             
-            <br><br>
-            
+            <input type="hidden" name="func" value="3">
+               
             <input type="submit" value="bora">
+        
         </form>
+
+        
+        <br><br>
+
+        <form  action="func.php" method="post">
+            <label for="brand">Marca</label>
+            <select id="brand" name="brand">
+                <option>Selecione...</option>
+                <?php
+                    while ($i_brand >= 0) {
+                        $result = $resultado_brand[$i_brand];
+                        print_r("<option>$result[0]</option>");
+                        $i_brand = $i_brand-1;
+                    }; 
+                ?>
+            </select>
+            <label for="brand">Nome do modelo</label>
+            <input type="text" id="model_name" name="model_name">
+            <label for="model_cc">Cilindrada</label>
+            <input type="text" id="model_cc" name="model_cc">
+            <label for="oil">Óleo</label>
+            <select id="oil" name="oil">
+                <option>Selecione...</option>
+                <?php
+                    while ($i_oil >= 0) {
+                        $result = $resultado_oil[$i_oil];
+                        print_r("<option>$result[0]</option>");
+                        $i_oil = $i_oil-1;
+                    }; 
+                ?>
+            </select>
+            
+            
+            <label for="oil_km">Km para a troca de óleo</label>
+            <input type="text" id="oil_km" name="oil_km">
+
+            <input type="hidden" name="func" value="4">
+               
+            <input type="submit" value="bora">
+            
+        </form>
+        
+        <br><br>
+            
+
 
 
     </div>
