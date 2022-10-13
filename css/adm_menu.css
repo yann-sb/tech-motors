@@ -1,0 +1,31 @@
+.size{
+    width: 40%;
+    height: 94%;
+
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+.add{
+    padding: 20px;
+    border-style: solid;
+    border-color: #507D72;
+    border-radius: 15px
+}
+
+.model{
+    padding: 20px;
+    border-style: solid;
+    border-color: #507D72;
+    border-radius: 15px
+
+}
+
+.model div{
+    margin-bottom: 5px
+}
+
+.add div{
+    margin-bottom: 5px
+}
