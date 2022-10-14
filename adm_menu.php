@@ -155,7 +155,7 @@
 
                 </tr>
 
-                <tr>
+                
                     <?php 
                     echo $i_user;
                     while ($i_user > 0) {
@@ -164,15 +164,17 @@
                         $comando ="SELECT user_nick FROM usuario";
                         $resultado_nick = $pdo->query($comando)->fetch();
                         $result_nick = $resultado_nick[0];
+                        echo("<tr>");
                         echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='1' onChange='this.form.submit()'></form></td>");
                         echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='2' onChange='this.form.submit()'></form></td>");
                         print_r("<td>$result_id</td>");
                         echo("<td>$result_nick</td>");
-                        $i_oil = $i_oil-1;
+                        echo("</tr>");
+                        $i_user = $i_user-1;
                     };
                     
                     ?>
-                </tr>
+                
 
 
             </table>
