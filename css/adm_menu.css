@@ -29,3 +29,8 @@
 .add div{
     margin-bottom: 5px
 }
+
+.block_bk label{
+    margin-top: auto;
+    margin-bottom: auto;
+}

@@ -45,12 +45,12 @@
 
             <form + method="post" class="align add">
                 <div class="row">
-                    <label class="top" for="brand_add" style="margin-right:3px;">Marca</label>
+                    <label for="brand_add" style="margin-right:3px;">Marca</label>
                     <input type="text" id="brand" name="brand">
                 </div> 
                 
                 <div class="row">
-                    <label class="top" for="oil_add" style="margin-right:12px;">Óleo</label>
+                    <label for="oil_add" style="margin-right:12px;">Óleo</label>
                     <input type="text" id="oil_add" name="oil_add">
                 </div>
                 
@@ -112,17 +112,12 @@
 
                 <div class="row">
                 
-                    <label for="oil_km">Km para a troca de óleo</label>
+                    <label for="oil_km">Km entre troca de óleo</label>
                     <input type="text" id="oil_km" name="oil_km">
                 
                 </div>
-
-
-                    
-                    
                     
                 <input type="hidden" name="func" value="4">
-                    
                 <input type="submit" value="bora">
                     
             </form>
