@@ -3,7 +3,7 @@
     include("conexao.php");
 
     $func = $_POST["func"];
-    $rank = $_POST["rank"];
+    
 
     if($func=="1"){
 
@@ -120,13 +120,18 @@
     }
 
 
+    $rank = $_POST["rank"];
+    $user_id = $_POST["adm_check"];
+
     if($rank!==null){
-        if($rank==1){
-            echo "1";
-        }
-        if($rank==2){
-            echo "2";
-        }
+        $comando = $pdo->prepare("UPDATE usuario SET user_rank=$rank WHERE user_id=$user_id");
+
+        echo $rank;
+        echo "<br>";
+
+        print_r($comando);
+
+        $comando->execute();
     };
 
 ?>
