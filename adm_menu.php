@@ -157,23 +157,22 @@
 
                 
                     <?php 
-                    print_r ($resultado_user);
-                    echo "<br>";
-                    echo $i_user;
+                    // print_r ($resultado_user);
+                    // echo "<br>";
+                    // echo $i_user;
                     while ($i_user > 0) {
                         $result_id = $resultado_user[$i_user];
                         $result_id = $result_id[0];
 
-                        echo "<br>";
-                        echo $result_id;
-                        echo "<br>";
+                        // echo "<br>";
+                        // echo $result_id;
+                        // echo "<br>";
 
                         $comando = "SELECT user_nick FROM usuario WHERE user_id='$result_id'";
-                        echo $comando;
-                        echo "<br>";
+                        // echo $comando;
+                        // echo "<br>";
                         $resultado_nick = $pdo->query($comando)->fetch();
-                        echo $resultado_nick[0];
-
+                        // echo $resultado_nick[0];
 
                         $result_nick = $resultado_nick[0];
                         echo("<tr>");
