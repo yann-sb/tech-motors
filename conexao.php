@@ -15,6 +15,4 @@ function pag_up($link){
     header("location: $link");
 };
 
-
-
 ?>

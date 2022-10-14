@@ -3,6 +3,7 @@
     include("conexao.php");
 
     $func = $_POST["func"];
+    $rank = $_POST["rank"];
 
     if($func=="1"){
 
@@ -119,6 +120,13 @@
     }
 
 
-
+    if($rank!==null){
+        if($rank==1){
+            echo "1";
+        }
+        if($rank==2){
+            echo "2";
+        }
+    };
 
 ?>

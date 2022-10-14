@@ -13,7 +13,7 @@ function pass_view(n){
 
 /*função para alterar a pagina*/
 function pag_up(p){    
-    console.log("entrou");
+    // console.log("entrou");
     
     window.location.href = p
 
