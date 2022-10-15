@@ -42,3 +42,7 @@
     border-radius: 15px
     
 }
+
+.model input{
+    width: 60px;
+}

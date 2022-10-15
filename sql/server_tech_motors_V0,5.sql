@@ -58,6 +58,8 @@ model_id int auto_increment primary key,
 model_name varchar(30) not null,
 model_cc int not null,
 model_oil_km int not null,
+model_fab int not null,
+model_end int not null,
 
 oil_id int not null,
 brand_id int not null,
@@ -100,4 +102,4 @@ constraint fk_service_moto_id foreign key(moto_id) references moto_user(moto_id)
 );
 
 
-insert into usuario(user_rank,user_nick,user_pass,user_cpf) values("1","Owner acount","owner_1234","11122233345");
+insert into usuario(user_rank,user_nick,user_pass,user_cpf) values("1","Owner acount","b3duZXJfMTIzNA==","11122233345");

@@ -155,6 +155,7 @@
 
     $rank = $_POST["rank"];
     $user_id = $_POST["adm_check"];
+    $delete = $_POST["delete"];
 
     if($rank!==null){
         $comando = $pdo->prepare("UPDATE usuario SET user_rank=$rank WHERE user_id=$user_id");
@@ -168,5 +169,22 @@
 
         echo pag_up('adm_menu.php');
     };
+
+    if($delete!==null){
+
+        $comando = $pdo->prepare("DELETE FROM usuario WHERE user_id=$delete");
+
+        // echo $rank;
+        // echo "<br>";
+
+        // print_r($comando);
+
+        $comando->execute();
+
+        echo pag_up('adm_menu.php');
+    
+
+
+    }
 
 ?>

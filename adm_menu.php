@@ -168,7 +168,7 @@
                         echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='2' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
                         print_r("<td>$result_id</td>");
                         echo("<td>$result_nick</td>");
-                        echo('<td><img src="images/icons/x.png" style="width: 20px;"></td>');
+                        echo("<td><form action='func.php' method='post'><input type='image' src='images/icons/x.png' style='width: 20px;background-color: #2F3D40;' onclick='this.form.submit()'><input type='hidden' name='delete' value='$result_id'></form></td>");
                         echo("</tr>");
                         $i_user = $i_user-1;
                     };
@@ -177,7 +177,8 @@
                 </tbody>
                 
             </table>
-        
+
+            
 
         </div>
 
