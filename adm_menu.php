@@ -32,8 +32,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/adm_menu.css">
     <link rel="stylesheet" href="css/config.css">
+    <link rel="stylesheet" href="css/adm_menu.css">
     <title>Document</title>
 </head>
 <body> 
@@ -124,34 +124,27 @@
                     
             <br><br>
                     
-        </div>
+        '</div>
                     
-        <div class="align column size">
-            <table>
+        <div class="align column size right">
+            <table class="table table-striped table-bordered table-condensed table-hover">
 
-                <tr>
+                <thead>
 
-                    <td>
-                        Dono
-                    </td>
+                    <tr>
 
-                    <td>
-                        ADM
-                    </td>
-                    
-                    <td>
-                        ID do usuário
-                    </td>
- 
-                    <td>
-                        Nome do usuário
-                    </td>
-                    
-                    
+                        <td>Dono</td>
+                        <td>ADM</td>
+                            
+                        <td>ID do usuário</td>
+                            
+                        <td>Nome do usuário</td>
 
-                </tr>
-
+                    </tr>
                 
+                </thead>
+                        
+                <tbody>
                     <?php 
                     // print_r ($resultado_user);
                     // echo "<br>";
@@ -159,17 +152,14 @@
                     while ($i_user > 0) {
                         $result_id = $resultado_user[$i_user];
                         $result_id = $result_id[0];
-
                         // echo "<br>";
                         // echo $result_id;
                         // echo "<br>";
-
                         $comando = "SELECT user_nick FROM usuario WHERE user_id='$result_id'";
                         // echo $comando;
                         // echo "<br>";
                         $resultado_nick = $pdo->query($comando)->fetch();
                         // echo $resultado_nick[0];
-
                         $result_nick = $resultado_nick[0];
                         echo("<tr>");
                         echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='1' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
@@ -179,11 +169,10 @@
                         echo("</tr>");
                         $i_user = $i_user-1;
                     };
-                    
+
                     ?>
+                </tbody>
                 
-
-
             </table>
         
 
