@@ -43,6 +43,8 @@
     <div class="align block_bk row">
         <div class="align column size">
 
+            <img src="images/icons/arrow.png" class="return" onclick="pag_up('profile.html');" style="margin-top: -15px;margin-left:-20px" >
+
             <form + method="post" class="align add">
                 <div class="row">
                     <label for="brand_add" style="margin-right:3px;">Marca</label>
@@ -166,6 +168,7 @@
                         echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='2' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
                         print_r("<td>$result_id</td>");
                         echo("<td>$result_nick</td>");
+                        echo('<td><img src="images/icons/x.png" style="width: 20px;"></td>');
                         echo("</tr>");
                         $i_user = $i_user-1;
                     };
@@ -178,9 +181,9 @@
 
         </div>
 
-
-
-
     </div>
+
+
+<script src="js/js_login_1.js"></script>
 </body>
 </html>

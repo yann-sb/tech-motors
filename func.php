@@ -56,9 +56,42 @@
         $comando->bindValue(":bday",$bday);
         $comando->bindValue(":num",$num);
         $comando->bindValue(":cpf",$cpf);
-        $comando->execute();
 
-        echo pag_up('index.php');
+        if($nome!=null){
+            if($sobre!=null){
+                if($nick!=null){
+                    if($email!=null){
+                        if($pass!=null){
+                            if($bday!=null){
+                                if($cpf!=null){
+                                    if($nome!=null){
+                                        $comando->execute();
+                                        echo pag_up('index.php');
+                                    }else{
+                                        echo pag_up('create_user_pg.html');
+                                    }
+                                }else{
+                                    echo pag_up('create_user_pg.html');
+                                }
+                            }else{
+                                echo pag_up('create_user_pg.html');
+                            }
+                        }else{
+                            echo pag_up('create_user_pg.html');
+                        }
+                    }else{
+                        echo pag_up('create_user_pg.html');
+                    }
+                }else{
+                    echo pag_up('create_user_pg.html');
+                }
+            }else{
+                echo pag_up('create_user_pg.html');
+            }
+        }else{
+            echo pag_up('create_user_pg.html');
+        }
+
     };
 
     if($func=="3"){
