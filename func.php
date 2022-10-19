@@ -171,8 +171,8 @@
     };
 
     if($delete!==null){
-
-        $comando = $pdo->prepare("DELETE FROM usuario WHERE user_id=$delete");
+        
+        $comando = $pdo->prepare("UPDATE usuario SET user_rank=3 WHERE user_id=$delete");
 
         // echo $rank;
         // echo "<br>";
