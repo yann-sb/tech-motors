@@ -1,3 +1,17 @@
+<?php  
+    include("conexao.php");
+?>
+
+<?php 
+    $comando ="SELECT brand_name FROM brand";
+    $resultado_brand = $pdo->query($comando)->fetchAll(); 
+    $count = count($resultado_brand);
+    
+    $i_brand = $count-1;        
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -33,13 +47,32 @@
             <div class="row align" style="width: 100%;">
 
                 <div class="column">  
-                    <label for="brand">Marca*</label>
-                    <select id="brand">
-                        <option value="null">Escolha a sua opção</option>
-
+                <label for="brand">Marca</label>
+                    <select id="brand" name="brand">
+                        <option>Selecione...</option>
+                        <?php
+                            $c=0;
+                            while ($c <= $i_brand) {
+                                $result = $resultado_brand[$c];
+                                print_r("<option>$result[0]</option>");
+                                $c = $c+1;
+                            };
+                            $c=0;
+                        ?>
                     </select>
-                    
+
                     <br>
+                        
+                    <?php 
+                        
+                        $brand_id=$_GET['brand'] ;
+                        
+                        $comando ="SELECT model_name FROM model WHERE brand_id=$brand_id[0]";
+                        $resultado_model = $pdo->query($comando)->fetchAll(); 
+                        $count = count($resultado_model);
+
+                        $i_model = $count-1;        
+                    ?>
 
                     <label for="mod">Modelo*</label>
                     <select id="mod">
@@ -73,6 +106,15 @@
                         <label for="color">Cor*</label>
                         <select id="color">
                             <option value="null">Escolha a sua opção</option>
+                            <option value="blue">azul</option>
+                            <option value="black">preto</option>
+                            <option value="red">vermelho</option>
+                            <option value="gray">cinza</option>
+                            <option value="orange">laranja</option>
+                            <option value="white">branco</option>
+                            <option value="purple">roxo</option>
+                            <option value="yellow">amarelo</option>
+                            <option value="green">verde</option>
                         </select>
                     </div>
 

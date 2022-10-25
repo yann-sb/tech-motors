@@ -130,10 +130,10 @@
                 <div class="row">
                 
                     <label for="oil_km">De:</label>
-                    <input type="text" id="oil_km" name="oil_km">
+                    <input type="text" name="start_fab">
 
                     <label for="oil_km" style="margin-left:10px">Até:</label>
-                    <input type="text" id="oil_km" name="oil_km">
+                    <input type="text" name="end_fab">
                 
                 </div>
                     
