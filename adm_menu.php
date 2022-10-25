@@ -15,12 +15,16 @@
         $resultado_brand = $pdo->query($comando)->fetchAll(); 
         $count = count($resultado_brand);
         
-        $i_brand = $count -1;        
+        $i_brand = $count-1;        
     ?>
 
     <?php 
         $comando ="SELECT user_id FROM usuario";
         $resultado_user = $pdo->query($comando)->fetchAll(); 
+        
+        $comando ="SELECT user_rank FROM usuario";
+        $resultado_rank = $pdo->query($comando)->fetchAll(); 
+        
         $count = count($resultado_user);
         
         $i_user = $count -1;        
@@ -45,7 +49,7 @@
 
             <img src="images/icons/arrow.png" class="return" onclick="pag_up('profile.html');" style="margin-top: -15px;margin-left:-20px" >
 
-            <form + method="post" class="align add">
+            <form action="func.php" method="post" class="align add" style="margin-top:-20px">
                 <div class="row">
                     <label for="brand_add" style="margin-right:3px;">Marca</label>
                     <input type="text" id="brand" name="brand">
@@ -72,11 +76,13 @@
                     <select id="brand" name="brand">
                         <option>Selecione...</option>
                         <?php
-                            while ($i_brand >= 0) {
-                                $result = $resultado_brand[$i_brand];
+                            $c=0;
+                            while ($c <= $i_brand) {
+                                $result = $resultado_brand[$c];
                                 print_r("<option>$result[0]</option>");
-                                $i_brand = $i_brand-1;
-                            }; 
+                                $c = $c+1;
+                            };
+                            $c=0;
                         ?>
                     </select>
                 
@@ -85,7 +91,7 @@
                 <div class="row">
                 
                     <label for="brand">Nome do modelo</label>
-                    <input type="text" id="model_name" name="model_name">
+                    <input type="text" id="model_name" name="model_name" style="width:90px">
                 
                 </div>
 
@@ -102,11 +108,13 @@
                     <select id="oil" name="oil">
                         <option>Selecione...</option>
                         <?php
-                            while ($i_oil >= 0) {
-                                $result = $resultado_oil[$i_oil];
+                            $c=0;
+                            while ($c <= $i_oil) {
+                                $result = $resultado_oil[$c];
                                 print_r("<option>$result[0]</option>");
-                                $i_oil = $i_oil-1;
+                                $c = $c+1;
                             }; 
+                            $c=0;
                         ?>
                     </select>
                 
@@ -118,9 +126,19 @@
                     <input type="text" id="oil_km" name="oil_km">
                 
                 </div>
+
+                <div class="row">
+                
+                    <label for="oil_km">De:</label>
+                    <input type="text" name="start_fab">
+
+                    <label for="oil_km" style="margin-left:10px">Até:</label>
+                    <input type="text" name="end_fab">
+                
+                </div>
                     
                 <input type="hidden" name="func" value="4">
-                <input type="submit" value="bora">
+                <input type="submit" value="bora" style="margin-left:70px;">
                     
             </form>
                     
@@ -154,6 +172,8 @@
                     while ($i_user > 0) {
                         $result_id = $resultado_user[$i_user];
                         $result_id = $result_id[0];
+                        $result_rank = $resultado_rank[$i_user];
+                        $result_rank = $result_rank[0];
                         // echo "<br>";
                         // echo $result_id;
                         // echo "<br>";
@@ -163,13 +183,26 @@
                         $resultado_nick = $pdo->query($comando)->fetch();
                         // echo $resultado_nick[0];
                         $result_nick = $resultado_nick[0];
-                        echo("<tr>");
-                        echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='1' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
-                        echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='2' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
-                        print_r("<td>$result_id</td>");
-                        echo("<td>$result_nick</td>");
-                        echo("<td><form action='func.php' method='post'><input type='image' src='images/icons/x.png' style='width: 20px;background-color: #2F3D40;' onclick='this.form.submit()'><input type='hidden' name='delete' value='$result_id'></form></td>");
-                        echo("</tr>");
+
+                        if($result_rank==1){
+                            echo("<tr>");
+                            echo("<td><form action='func.php' method='post'><input type='checkbox' onChange='this.form.submit()' checked><input type='hidden' name='adm_check' value='$result_id'><input type='hidden' name='rank' value='1'></form></td>");
+                            echo("<td><form action='func.php' method='post'><input type='checkbox' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'><input type='hidden' name='rank' value='2'></form></td>"); 
+                        }elseif ($result_rank==2) {
+                            echo("<tr>");
+                            echo("<td><form action='func.php' method='post'><input type='checkbox' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'><input type='hidden' name='rank' value='1'></form></td>");
+                            echo("<td><form action='func.php' method='post'><input type='checkbox' onChange='this.form.submit()'checked><input type='hidden' name='adm_check' value='$result_id'><input type='hidden' name='rank' value='2'></form></td>");
+                        }else{
+                            echo("<tr>");
+                            echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='1' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
+                            echo("<td><form action='func.php' method='post'><input type='checkbox' name='rank' value='2' onChange='this.form.submit()'><input type='hidden' name='adm_check' value='$result_id'></form></td>");
+                        }
+                            print_r("<td>$result_id</td>");
+                            echo("<td>$result_nick</td>");
+                            echo("<td><form action='func.php' method='post'><input type='image' src='images/icons/x.png' style='width: 20px;background-color: #2F3D40;' onclick='this.form.submit()'><input type='hidden' name='delete' value='$result_id'></form></td>");
+                            echo("</tr>");
+
+                        
                         $i_user = $i_user-1;
                     };
 

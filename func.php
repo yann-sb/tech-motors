@@ -143,6 +143,8 @@
         $model_name = $_POST["model_name"];
         $oil_km = $_POST["oil_km"];
         $model_cc = $_POST["model_cc"];
+        $model_fab = $_POST["start_fab"];
+        $model_end = $_POST["end_fab"];
 
         $sql_oil = "SELECT oil_id FROM oil_cod WHERE oil_cod='$oil'";
 
@@ -154,9 +156,11 @@
 
 
         if($brand!=null && $model_cc!=null && $oil!=null && $model_name!=null && $oil_km!=null){
-            $comando = $pdo->prepare("INSERT INTO model(model_name,model_cc,model_oil_km,oil_id,brand_id) VALUES(:model_name,:model_cc,:model_oil_km,:oil_id,:brand_id)");
+            $comando = $pdo->prepare("INSERT INTO model(model_name,model_cc,model_fab,model_end,model_oil_km,oil_id,brand_id) VALUES(:model_name,:model_cc,:model_fab,:model_end,:model_oil_km,:oil_id,:brand_id)");
             $comando->bindValue(":model_name",$model_name);
             $comando->bindValue(":model_cc",$model_cc);
+            $comando->bindValue(":model_fab",$model_fab);
+            $comando->bindValue(":model_end",$model_end);
             $comando->bindValue(":model_oil_km",$oil_km);
             $comando->bindValue(":oil_id",$result_oil[0]);
             $comando->bindValue(":brand_id",$result_brand[0]);
@@ -191,8 +195,8 @@
     };
 
     if($delete!==null){
-
-        $comando = $pdo->prepare("DELETE FROM usuario WHERE user_id=$delete");
+        
+        $comando = $pdo->prepare("UPDATE usuario SET user_rank=3 WHERE user_id=$delete");
 
         // echo $rank;
         // echo "<br>";

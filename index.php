@@ -47,7 +47,7 @@
                         <br><br><br>
                         <div class="but align text_align" onclick="pag_up('create_user_pg.html');" style="height:35px" ><p class="top" style="margin-top:5px">Criar conta</p></div>
                     </div>
-                    <input type="hidden" value="1" name="func">
+                    <input type="hidden" value="1" name="func"> 
                 </form>
 
             </div>
