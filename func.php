@@ -19,16 +19,36 @@
             $sql_name = "SELECT user_pass FROM usuario WHERE user_nick='$nick'";
             $sql_mail = "SELECT user_pass FROM usuario WHERE user_mail='$nick'";
 
-            $result_name = $pdo->query($sql_name)->fetch(); 
-            $result_mail = $pdo->query($sql_mail)->fetch(); 
+            $result_name = $pdo->query($sql_name)->fetch();      
             
             if(base64_decode($result_name[0])==$pass){
-                echo pag_up('profile.html');
+                $sql_user_id = "SELECT user_id FROM usuario WHERE user_nick='$nick'";
+                $result_id = $pdo->query($sql_user_id)->fetch();
+
+                ?> 
+
+                    <html><script>
+                    var user_cod = localStorage 
+                    var transition = <?php $result_id[0];?>
+                    localStorage.setItem("user_id", transition);
+                    console.log(user_cod);
+                    
+                    </script></html>
+
+                <?php
+
+                // echo pag_up('profile.html');
             }else{
+                $result_mail = $pdo->query($sql_mail)->fetch();
                 if(base64_decode($result_mail[0])==$pass){
-                    echo pag_up('profile.html');
+                    
+                    
+                    
+                    // echo pag_up('profile.html');
+                    
                 }else{
-                    echo pag_up('index.php');
+                    // echo pag_up('index.php');
+                    
                 }
             }
 
