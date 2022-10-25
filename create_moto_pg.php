@@ -48,24 +48,26 @@
 
                 <div class="column">  
                 <label for="brand">Marca</label>
-                    <select id="brand" name="brand">
-                        <option>Selecione...</option>
-                        <?php
-                            $c=0;
-                            while ($c <= $i_brand) {
-                                $result = $resultado_brand[$c];
-                                print_r("<option>$result[0]</option>");
-                                $c = $c+1;
-                            };
-                            $c=0;
-                        ?>
-                    </select>
-
+                    <form action="<?php echo bran_id('a');?>" method="post">
+                        <select id="brand" name="brand">
+                            <option>Selecione...</option>
+                            <?php
+                                $c=0;
+                                while ($c <= $i_brand) {
+                                    $result = $resultado_brand[$c];
+                                    print_r("<option onclick='this.form.submit()'>$result[0]</option>");
+                                    $c = $c+1;
+                                };
+                                $c=0;
+                            ?>
+                        </select>
+                    </form>
+                    
                     <br>
                         
-                    <?php 
+                    <?php
                         
-                        $brand_id=$_GET['brand'] ;
+                        $brand_id=$_POST['brand'] ;
                         
                         $comando ="SELECT model_name FROM model WHERE brand_id=$brand_id[0]";
                         $resultado_model = $pdo->query($comando)->fetchAll(); 
