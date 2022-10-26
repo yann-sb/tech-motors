@@ -48,28 +48,30 @@
 
                 <div class="column">  
                 <label for="brand">Marca</label>
-                    <form action="<?php echo bran_id('a');?>" method="post">
-                        <select id="brand" name="brand">
-                            <option>Selecione...</option>
-                            <?php
-                                $c=0;
-                                while ($c <= $i_brand) {
-                                    $result = $resultado_brand[$c];
-                                    print_r("<option onclick='this.form.submit()'>$result[0]</option>");
-                                    $c = $c+1;
-                                };
-                                $c=0;
-                            ?>
-                        </select>
-                    </form>
+                    
+                    <select id="brand" name="brand">
+                        <option>Selecione...</option>
+                        <?php
+                            $c=0;
+                            while ($c <= $i_brand) {
+                                $result = $resultado_brand[$c];
+                                print_r("<option onclick='this.form.submit()'>$result[0]</option>");
+                                $c = $c+1;
+                            };
+                            $c=0;
+                            $brand_id=$_GET['brand'];
+                        
+                        ?>
+                    
+                    </select>
                     
                     <br>
                         
                     <?php
                         
-                        $brand_id=$_POST['brand'] ;
+                        echo $brand_id;
                         
-                        $comando ="SELECT model_name FROM model WHERE brand_id=$brand_id[0]";
+                        $comando ="SELECT model_name FROM model WHERE brand_id=$brand_id";
                         $resultado_model = $pdo->query($comando)->fetchAll(); 
                         $count = count($resultado_model);
 
