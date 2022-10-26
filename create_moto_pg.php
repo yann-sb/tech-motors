@@ -1,5 +1,7 @@
 <?php  
     include("conexao.php");
+    session_start();
+    $brand_id = $_SESSION["brand_select"];
 ?>
 
 <?php 
@@ -48,30 +50,44 @@
 
                 <div class="column">  
                 <label for="brand">Marca</label>
-                    
-                    <select id="brand" name="brand">
-                        <option>Selecione...</option>
-                        <?php
-                            $c=0;
-                            while ($c <= $i_brand) {
-                                $result = $resultado_brand[$c];
-                                print_r("<option onclick='this.form.submit()'>$result[0]</option>");
-                                $c = $c+1;
-                            };
-                            $c=0;
-                            $brand_id=$_GET['brand'];
-                        
-                        ?>
-                    
-                    </select>
-                    
+                    <form action="func.php" method="post">
+                        <input type="hidden" value="5" name="func">
+                        <select id="brand" name="brand" onChange="this.form.submit()">
+                            <?php 
+                            
+                            if($brand_id!==null){
+                                $comando ="SELECT brand_name FROM brand WHERE brand_id=$brand_id";
+                                $res_brand = $pdo->query($comando)->fetchAll(); 
+                                $res_brand = $res_brand[0];
+                                echo "<option>Selecionado $res_brand</option>";
+                            }else{
+                                echo "<option>Selecione...</option>";
+                            }
+                            
+                            ?>
+                
+                            <?php
+                                $c=0;
+                                while ($c <= $i_brand) {
+                                    $result = $resultado_brand[$c];
+                                    print_r("<option>$result[0]</option>");
+                                    $c = $c+1;
+                                };
+                                $c=0;
+                                $brand_id=$_GET['brand'];
+                            
+                            ?>
+
+                        </select>
+                    </form>
+
                     <br>
                         
                     <?php
                         
-                        echo $brand_id;
                         
-                        $comando ="SELECT model_name FROM model WHERE brand_id=$brand_id";
+                        
+                        $comando ="SELECT model_name FROM model WHERE brand_id='$brand_id'";
                         $resultado_model = $pdo->query($comando)->fetchAll(); 
                         $count = count($resultado_model);
 

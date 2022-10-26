@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     include("conexao.php");
 
     $func = $_POST["func"];
@@ -25,29 +25,21 @@
                 $sql_user_id = "SELECT user_id FROM usuario WHERE user_nick='$nick'";
                 $result_id = $pdo->query($sql_user_id)->fetch();
 
-                ?> 
-
-                    <html><script>
-                    var user_cod = localStorage 
-                    var transition = <?php $result_id[0];?>
-                    localStorage.setItem("user_id", transition);
-                    console.log(user_cod);
+                $_SESSION['id_usuario'] = $result_id;
+                $_SESSION['loggedin'] = true;    
                     
-                    </script></html>
-
-                <?php
-
-                // echo pag_up('profile.html');
+                echo pag_up('profile.html');
             }else{
                 $result_mail = $pdo->query($sql_mail)->fetch();
                 if(base64_decode($result_mail[0])==$pass){
                     
+                    $_SESSION['id_usuario'] = $result_id;
+                    $_SESSION['loggedin'] = true;    
                     
-                    
-                    // echo pag_up('profile.html');
+                    echo pag_up('profile.html');
                     
                 }else{
-                    // echo pag_up('index.php');
+                    echo pag_up('index.php');
                     
                 }
             }
@@ -209,6 +201,20 @@
     
 
 
+    }
+
+    if($func==5){
+        $brand_selector = $_POST["brand"];
+
+        $sql_brand = "SELECT brand_id FROM brand WHERE brand_name='$brand_selector'";
+
+        $result_brand = $pdo->query($sql_brand)->fetch();
+
+        $result_brand = $result_brand[0];
+
+        $_SESSION['brand_select'] = $result_brand;
+        // echo $_SESSION['brand_select'];
+        echo pag_up('create_moto_pg.php');
     }
 
 ?>
