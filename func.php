@@ -6,7 +6,7 @@
     
 
     if($func=="1"){
-
+ 
         $nick = $_POST["name_mail"];
         $pass = $_POST["pass_box"];
  

@@ -64,8 +64,6 @@ model_end int not null,
 oil_id int not null,
 brand_id int not null,
 
-constraint un_model_name unique(model_name),
-
 constraint fk_brand_id foreign key(brand_id) references brand(brand_id),
 constraint fk_oil_id foreign key(oil_id) references oil_cod(oil_id)
 );

@@ -65,18 +65,6 @@
                             }
                             
                             ?>
-                
-                            <?php
-                                $c=0;
-                                while ($c <= $i_brand) {
-                                    $result = $resultado_brand[$c];
-                                    print_r("<option>$result[0]</option>");
-                                    $c = $c+1;
-                                };
-                                $c=0;
-                                $brand_id=$_GET['brand'];
-                            
-                            ?>
 
                         </select>
                     </form>
@@ -84,11 +72,14 @@
                     <br>
                         
                     <?php
-                        
-                        
-                        
-                        $comando ="SELECT model_name FROM model WHERE brand_id='$brand_id'";
-                        $resultado_model = $pdo->query($comando)->fetchAll(); 
+                        $comando_fab ="SELECT model_fab FROM model WHERE brand_id='$brand_id'";
+                        $comando_end ="SELECT model_end FROM model WHERE brand_id='$brand_id'";
+                        $comando_cc ="SELECT model_cc FROM model WHERE brand_id='$brand_id'";
+                        $comando_model ="SELECT model_name FROM model WHERE brand_id='$brand_id'";
+                        $resultado_fab = $pdo->query($comando_fab)->fetchAll();
+                        $resultado_end = $pdo->query($comando_end)->fetchAll();
+                        $resultado_cc = $pdo->query($comando_cc)->fetchAll();
+                        $resultado_model = $pdo->query($comando_model)->fetchAll(); 
                         $count = count($resultado_model);
 
                         $i_model = $count-1;        
@@ -97,7 +88,20 @@
                     <label for="mod">Modelo*</label>
                     <select id="mod">
                         <option value="null">Escolha a sua opção</option>
-                        
+                        <?php
+                                $c=0;
+                                while ($c <= $i_model) {
+                                    if($resultado_end[$c]==0){
+                                        $resultado_end = "..."
+                                    }
+
+                                    $result = $resultado_model[$c]." ". ;
+                                    print_r("<option>$result[0]</option>");
+                                    $c = $c+1;
+                                };
+                                $c=0;
+                            
+                            ?>
                     </select>
                 </div>
 
