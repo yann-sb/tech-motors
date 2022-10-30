@@ -4,13 +4,7 @@
     $brand_id = $_SESSION["brand_select"];
 ?>
 
-<?php 
-    $comando ="SELECT brand_name FROM brand";
-    $resultado_brand = $pdo->query($comando)->fetchAll(); 
-    $count = count($resultado_brand);
-    
-    $i_brand = $count-1;        
-?>
+
 
 
 
@@ -53,17 +47,40 @@
                     <form action="func.php" method="post">
                         <input type="hidden" value="5" name="func">
                         <select id="brand" name="brand" onChange="this.form.submit()">
+                            
                             <?php 
+                                $comando ="SELECT brand_name FROM brand";
+                                $resultado_brand = $pdo->query($comando)->fetchAll(); 
+                                $count = count($resultado_brand);
+
+                                $i_brand = $count-1;        
+                            ?>
                             
-                            if($brand_id!==null){
-                                $comando ="SELECT brand_name FROM brand WHERE brand_id=$brand_id";
-                                $res_brand = $pdo->query($comando)->fetchAll(); 
-                                $res_brand = $res_brand[0];
-                                echo "<option>Selecionado $res_brand</option>";
-                            }else{
-                                echo "<option>Selecione...</option>";
-                            }
-                            
+                            <?php 
+                                if($brand_id!==null){
+                                    $comando ="SELECT brand_name FROM brand WHERE brand_id=$brand_id";
+                                    $res_brand = $pdo->query($comando)->fetchAll(); 
+                                    $res_brand = $res_brand[0];
+                                    print_r("<option>Selecionado ".$res_brand[0]."</option>") ;
+
+                                    $comando ="SELECT brand_name FROM brand";
+                                    $res_brand = $pdo->query($comando)->fetchAll(); 
+                                    
+                                }else{
+                                    $comando ="SELECT brand_name FROM brand";
+                                    $res_brand = $pdo->query($comando)->fetchAll(); 
+                                    echo "<option>Selecione...</option>";
+                                }
+                                
+                                $c=0;
+                                while ($c <= $i_brand) {
+                                    $result_brand = $res_brand[$c];
+                                    print_r("<option>$result_brand[0]</option>");
+                                    $c = $c+1;
+                                }       
+                                $c=0;
+
+                                $brand_id = $_SESSION["brand_select"];
                             ?>
 
                         </select>
@@ -91,13 +108,26 @@
                         <?php
                                 $c=0;
                                 while ($c <= $i_model) {
-                                    if($resultado_end[$c]==0){
-                                        $resultado_end = "..."
-                                    }
+                                    $resultado_end = $resultado_end[$c];
+                                    if($resultado_end[0]==0){
+                                        $resultado_end = "...";
+                                        $resultado_model = $resultado_model[$c]; 
+                                        $resultado_cc = $resultado_cc[$c];
+                                        $resultado_fab = $resultado_fab[$c];
+                                        $result = $resultado_model[0]." ".$resultado_cc[0]." (".$resultado_fab[0]."/".$resultado_end.")";
+                                        print_r("<option>$result</option>");
+                                        $c = $c+1;
+                                    }else{
+                                        $resultado_model = $resultado_model[$c]; 
+                                        $resultado_cc = $resultado_cc[$c];
+                                        $resultado_fab = $resultado_fab[$c];
+                                        $result = $resultado_model[0]." ".$resultado_cc[0]." (".$resultado_fab[0]."/".$resultado_end[0].")";
+                                        print_r("<option>$result</option>");
+                                        $c = $c+1;
 
-                                    $result = $resultado_model[$c]." ". ;
-                                    print_r("<option>$result[0]</option>");
-                                    $c = $c+1;
+                                    }
+                                    
+
                                 };
                                 $c=0;
                             
@@ -156,6 +186,8 @@
             </div>
 
         </div>
+
+
 
         
     </div>
