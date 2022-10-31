@@ -206,15 +206,52 @@
     if($func==5){
 
         $brand_selector = $_POST["brand"];
+        $nick_create = $_POST["nick"];
         $model_create = $_POST["model"];
         $ano_fab_create = $_POST["ano_fab"];
         $ano_mod_create = $_POST["ano_mod"];
         $desc_create = $_POST["desc"];
         $color_create = $_POST["color"];
         $plate_create = $_POST["plate"];
+        $user_id = $_SESSION['id_usuario'];
 
         if($model_create!=="" && $ano_fab_create!=="" && $color_create!=="" && $plate_create!==""){
-            echo "foi";
+            
+            echo $model_create;
+            echo "<br>";
+            echo $ano_fab_create;
+            echo "<br>";
+            echo $color_create;
+            echo "<br>";
+            echo $plate_create;
+            echo "<br>";
+            echo $user_id[0];
+            
+
+            if($desc_create!=="" && $ano_mod_create!==""){
+                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,moto_desc,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:moto_desc,:model_id,:user_id)");
+                $comando->bindValue(":moto_desc",$desc_create);
+                $comando->bindValue(":year_mod",$ano_mod_create);
+            }elseif($desc_create=="" && $ano_mod_create!==""){
+                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:model_id,:user_id)");
+                $comando->bindValue(":year_mod",$ano_mod_create);
+            
+            }elseif($desc_create!=="" && $ano_mod_create==""){
+                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,,moto_color,moto_plate,model_id,user_id) VALUES(:nick,:year_fab,:moto_desc,:color,:plate,:model_id,:user_id)");
+                $comando->bindValue(":moto_desc",$desc_create);
+            
+            }else{
+                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,model_id,user_id) VALUES(:nick,:year_fab,:color,:plate,:model_id,:user_id)");
+            }
+            $comando->bindValue(":nick",$nick_create);
+            $comando->bindValue(":model_id",$model_create);
+            $comando->bindValue(":year_fab",$ano_fab_create);
+            $comando->bindValue(":color",$color_create);
+            $comando->bindValue(":plate",$plate_create);
+            $comando->bindValue(":user_id",$user_id[0]);
+            $comando->execute();
+
+            // echo pag_up('create_moto_pg.php');
 
         }
         elseif($brand_selector!==null){

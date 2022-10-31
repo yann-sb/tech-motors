@@ -72,17 +72,15 @@ create table moto_user(
 moto_id int auto_increment primary key,
 moto_nick varchar(25) not null,
 moto_year_fab varchar(4) not null,
-moto_year_mod varchar(4) not null,
+moto_year_mod varchar(4),
 moto_color varchar(10) not null,
 moto_plate varchar(10) not null,
 moto_desc varchar(280),
 
 model_id int not null,
-oil_id int not null,
 user_id int not null,
 
 constraint fk_user__model_id foreign key(model_id) references model(model_id),
-constraint fk_user_oil_id foreign key(oil_id) references model(oil_id),
 constraint fk_user__user_id foreign key(user_id) references usuario(user_id)
 
 );

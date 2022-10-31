@@ -1,4 +1,7 @@
 <?php  
+    error_reporting(0);
+    ini_set('display_errors', 0);
+    
     include("conexao.php");
     session_start();
     $brand_id = $_SESSION["brand_select"];
@@ -86,6 +89,8 @@
                             $comando_end ="SELECT model_end FROM model WHERE brand_id='$brand_id'";
                             $comando_cc ="SELECT model_cc FROM model WHERE brand_id='$brand_id'";
                             $comando_model ="SELECT model_name FROM model WHERE brand_id='$brand_id'";
+                            $comando_id ="SELECT model_id FROM model WHERE brand_id='$brand_id'";
+                            $resultado_id = $pdo->query($comando_id)->fetchAll();
                             $resultado_fab = $pdo->query($comando_fab)->fetchAll();
                             $resultado_end = $pdo->query($comando_end)->fetchAll();
                             $resultado_cc = $pdo->query($comando_cc)->fetchAll();
@@ -101,24 +106,23 @@
                             <?php
                                     $c=0;
                                     while ($c <= $i_model) {
-                                        $resultado_end = $resultado_end[$c];
-                                        if($resultado_end[0]==0){
-                                            $resultado_model = $resultado_model[$c]; 
-                                            $resultado_cc = $resultado_cc[$c];
-                                            $resultado_fab = $resultado_fab[$c];
-                                            $result = $resultado_model[0]." ".$resultado_cc[0]."cc (".$resultado_fab[0]."/...)";
-                                            print_r("<option>$result</option>");
-                                            $c = $c+1;
+                                        $result_end = $resultado_end[$c];
+                                        if($result_end[0]==0){
+                                            $result_id = $resultado_id[$c];
+                                            $result_model = $resultado_model[$c]; 
+                                            $result_cc = $resultado_cc[$c];
+                                            $result_fab = $resultado_fab[$c];
+                                            $result = $result_model[0]." ".$result_cc[0]."cc (".$result_fab[0]."/...)";
+                                            print_r('<option value="'.$result_id[0].'">'.$result.'</option>');
                                         }else{
-                                            $resultado_model = $resultado_model[$c]; 
-                                            $resultado_cc = $resultado_cc[$c];
-                                            $resultado_fab = $resultado_fab[$c];
-                                            $result = $resultado_model[0]." ".$resultado_cc[0]."cc (".$resultado_fab[0]."/".$resultado_end[0].")";
-                                            print_r("<option>$result</option>");
-                                            $c = $c+1;
-
+                                            $result_id = $resultado_id[$c];
+                                            $result_model = $resultado_model[$c]; 
+                                            $result_cc = $resultado_cc[$c];
+                                            $result_fab = $resultado_fab[$c];
+                                            $result = $result_model[0]." ".$result_cc[0]."cc (".$result_fab[0]."/".$result_end[0].")";
+                                            print_r('<option value="'.$result_id[0].'">'.$result.'</option>');
                                         }
-
+                                        $c = $c+1;
 
                                     };
                                     $c=0;
