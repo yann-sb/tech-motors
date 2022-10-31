@@ -228,21 +228,10 @@
             echo $user_id[0];
             
 
-            if($desc_create!=="" && $ano_mod_create!==""){
-                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,moto_desc,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:moto_desc,:model_id,:user_id)");
-                $comando->bindValue(":moto_desc",$desc_create);
-                $comando->bindValue(":year_mod",$ano_mod_create);
-            }elseif($desc_create=="" && $ano_mod_create!==""){
-                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:model_id,:user_id)");
-                $comando->bindValue(":year_mod",$ano_mod_create);
-            
-            }elseif($desc_create!=="" && $ano_mod_create==""){
-                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,,moto_color,moto_plate,model_id,user_id) VALUES(:nick,:year_fab,:moto_desc,:color,:plate,:model_id,:user_id)");
-                $comando->bindValue(":moto_desc",$desc_create);
-            
-            }else{
-                $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,model_id,user_id) VALUES(:nick,:year_fab,:color,:plate,:model_id,:user_id)");
-            }
+          
+            $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,moto_desc,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:moto_desc,:model_id,:user_id)");
+            $comando->bindValue(":moto_desc",$desc_create);
+            $comando->bindValue(":year_mod",$ano_mod_create);
             $comando->bindValue(":nick",$nick_create);
             $comando->bindValue(":model_id",$model_create);
             $comando->bindValue(":year_fab",$ano_fab_create);
