@@ -204,17 +204,32 @@
     }
 
     if($func==5){
+
         $brand_selector = $_POST["brand"];
+        $model_create = $_POST["model"];
+        $ano_fab_create = $_POST["ano_fab"];
+        $ano_mod_create = $_POST["ano_mod"];
+        $desc_create = $_POST["desc"];
+        $color_create = $_POST["color"];
+        $plate_create = $_POST["plate"];
 
-        $sql_brand = "SELECT brand_id FROM brand WHERE brand_name='$brand_selector'";
+        if($model_create!=="" && $ano_fab_create!=="" && $color_create!=="" && $plate_create!==""){
+            echo "foi";
 
-        $result_brand = $pdo->query($sql_brand)->fetch();
+        }
+        elseif($brand_selector!==null){
+            $sql_brand = "SELECT brand_id FROM brand WHERE brand_name='$brand_selector'";
 
-        $result_brand = $result_brand[0];
+            $result_brand = $pdo->query($sql_brand)->fetch();
 
-        $_SESSION['brand_select'] = $result_brand;
-        // echo $_SESSION['brand_select'];
-        echo pag_up('create_moto_pg.php');
+            $result_brand = $result_brand[0];
+
+            $_SESSION['brand_select'] = $result_brand;
+            // echo $_SESSION['brand_select'];
+            echo pag_up('create_moto_pg.php');
+        }
+    
+        
     }
 
 ?>

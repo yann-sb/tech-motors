@@ -34,159 +34,152 @@
 
         <div class="align line"></div>
 
-        <div class="row linha">
-            <div class="column align block">
+        <form action="func.php" method="POST">
+            <div class="row linha">
+                <div class="column align block">
 
-            <label for="nick">Apelido*</label>
-            <input type="text" id="nick">
-            <br>
-            <div class="row align" style="width: 100%;">
+                <label for="nick">Apelido*</label>
+                <input type="text" id="nick" name="nick">
+                <br>
+                <div class="row align" style="width: 100%;">
 
-                <div class="column">  
-                <label for="brand">Marca</label>
-                    <form action="func.php" method="post">
-                        <input type="hidden" value="5" name="func">
-                        <select id="brand" name="brand" onChange="this.form.submit()">
-                            
-                            <?php 
+                    <div class="column">  
+                    <label for="brand">Marca</label>    
+
+                    <select id="brand" name="brand" onChange="this.form.submit()">
+                        <?php 
+                            $comando ="SELECT brand_name FROM brand";
+                            $resultado_brand = $pdo->query($comando)->fetchAll(); 
+                            $count = count($resultado_brand);
+                            $i_brand = $count-1;        
+                        ?>
+                        <?php 
+                            if($brand_id!==null){
+                                $comando ="SELECT brand_name FROM brand WHERE brand_id=$brand_id";
+                                $res_brand = $pdo->query($comando)->fetchAll(); 
+                                $res_brand = $res_brand[0];
+                                print_r("<option>Selecionado ".$res_brand[0]."</option>") ;
                                 $comando ="SELECT brand_name FROM brand";
-                                $resultado_brand = $pdo->query($comando)->fetchAll(); 
-                                $count = count($resultado_brand);
-
-                                $i_brand = $count-1;        
-                            ?>
-                            
-                            <?php 
-                                if($brand_id!==null){
-                                    $comando ="SELECT brand_name FROM brand WHERE brand_id=$brand_id";
-                                    $res_brand = $pdo->query($comando)->fetchAll(); 
-                                    $res_brand = $res_brand[0];
-                                    print_r("<option>Selecionado ".$res_brand[0]."</option>") ;
-
-                                    $comando ="SELECT brand_name FROM brand";
-                                    $res_brand = $pdo->query($comando)->fetchAll(); 
-                                    
-                                }else{
-                                    $comando ="SELECT brand_name FROM brand";
-                                    $res_brand = $pdo->query($comando)->fetchAll(); 
-                                    echo "<option>Selecione...</option>";
-                                }
-                                
-                                $c=0;
-                                while ($c <= $i_brand) {
-                                    $result_brand = $res_brand[$c];
-                                    print_r("<option>$result_brand[0]</option>");
-                                    $c = $c+1;
-                                }       
-                                $c=0;
-
-                                $brand_id = $_SESSION["brand_select"];
-                            ?>
-
-                        </select>
-                    </form>
-
-                    <br>
-                        
-                    <?php
-                        $comando_fab ="SELECT model_fab FROM model WHERE brand_id='$brand_id'";
-                        $comando_end ="SELECT model_end FROM model WHERE brand_id='$brand_id'";
-                        $comando_cc ="SELECT model_cc FROM model WHERE brand_id='$brand_id'";
-                        $comando_model ="SELECT model_name FROM model WHERE brand_id='$brand_id'";
-                        $resultado_fab = $pdo->query($comando_fab)->fetchAll();
-                        $resultado_end = $pdo->query($comando_end)->fetchAll();
-                        $resultado_cc = $pdo->query($comando_cc)->fetchAll();
-                        $resultado_model = $pdo->query($comando_model)->fetchAll(); 
-                        $count = count($resultado_model);
-
-                        $i_model = $count-1;        
-                    ?>
-
-                    <label for="mod">Modelo*</label>
-                    <select id="mod">
-                        <option value="null">Escolha a sua opção</option>
-                        <?php
-                                $c=0;
-                                while ($c <= $i_model) {
-                                    $resultado_end = $resultado_end[$c];
-                                    if($resultado_end[0]==0){
-                                        $resultado_end = "...";
-                                        $resultado_model = $resultado_model[$c]; 
-                                        $resultado_cc = $resultado_cc[$c];
-                                        $resultado_fab = $resultado_fab[$c];
-                                        $result = $resultado_model[0]." ".$resultado_cc[0]." (".$resultado_fab[0]."/".$resultado_end.")";
-                                        print_r("<option>$result</option>");
-                                        $c = $c+1;
-                                    }else{
-                                        $resultado_model = $resultado_model[$c]; 
-                                        $resultado_cc = $resultado_cc[$c];
-                                        $resultado_fab = $resultado_fab[$c];
-                                        $result = $resultado_model[0]." ".$resultado_cc[0]." (".$resultado_fab[0]."/".$resultado_end[0].")";
-                                        print_r("<option>$result</option>");
-                                        $c = $c+1;
-
-                                    }
-                                    
-
-                                };
-                                $c=0;
-                            
-                            ?>
+                                $res_brand = $pdo->query($comando)->fetchAll(); 
+                            }else{
+                                $comando ="SELECT brand_name FROM brand";
+                                $res_brand = $pdo->query($comando)->fetchAll(); 
+                                echo "<option>Selecione...</option>";
+                            }
+                            $c=0;
+                            while ($c <= $i_brand) {
+                                $result_brand = $res_brand[$c];
+                                print_r("<option>$result_brand[0]</option>");
+                                $c = $c+1;
+                            }       
+                            $c=0;
+                            $brand_id = $_SESSION["brand_select"];
+                        ?>
                     </select>
-                </div>
+                        
+                        </form>
 
-                <div class="column" style="margin-left: 13%">
+                        <br>
+                                
+                        <?php
+                            $comando_fab ="SELECT model_fab FROM model WHERE brand_id='$brand_id'";
+                            $comando_end ="SELECT model_end FROM model WHERE brand_id='$brand_id'";
+                            $comando_cc ="SELECT model_cc FROM model WHERE brand_id='$brand_id'";
+                            $comando_model ="SELECT model_name FROM model WHERE brand_id='$brand_id'";
+                            $resultado_fab = $pdo->query($comando_fab)->fetchAll();
+                            $resultado_end = $pdo->query($comando_end)->fetchAll();
+                            $resultado_cc = $pdo->query($comando_cc)->fetchAll();
+                            $resultado_model = $pdo->query($comando_model)->fetchAll(); 
+                            $count = count($resultado_model);
 
-                    <label for="ano_fab">Ano(fabricação)*</label>
-                    <input id="ano_fab" type="int" style="width: 140px">
-                    <br>
-                    <label for="ano_mod">Ano(modelo)</label>
-                    <input id="ano_mod" type="int" style="width: 140px">
+                            $i_model = $count-1;        
+                        ?>
 
-                </div>
-                
-            </div>
-            <br>
-            <label for="desc">Descrição:</label>
-            <textarea id="desc"></textarea>
-
-            </div>
-
-            <div class="column align block">
-
-                <div class="row linha" style="width: 100%">
-                    
-                    <div class="column">
-                        <label for="color">Cor*</label>
-                        <select id="color">
+                        <label for="model">Modelo*</label>
+                        <select id="model" name="model" >
                             <option value="null">Escolha a sua opção</option>
-                            <option value="blue">azul</option>
-                            <option value="black">preto</option>
-                            <option value="red">vermelho</option>
-                            <option value="gray">cinza</option>
-                            <option value="orange">laranja</option>
-                            <option value="white">branco</option>
-                            <option value="purple">roxo</option>
-                            <option value="yellow">amarelo</option>
-                            <option value="green">verde</option>
+                            <?php
+                                    $c=0;
+                                    while ($c <= $i_model) {
+                                        $resultado_end = $resultado_end[$c];
+                                        if($resultado_end[0]==0){
+                                            $resultado_model = $resultado_model[$c]; 
+                                            $resultado_cc = $resultado_cc[$c];
+                                            $resultado_fab = $resultado_fab[$c];
+                                            $result = $resultado_model[0]." ".$resultado_cc[0]."cc (".$resultado_fab[0]."/...)";
+                                            print_r("<option>$result</option>");
+                                            $c = $c+1;
+                                        }else{
+                                            $resultado_model = $resultado_model[$c]; 
+                                            $resultado_cc = $resultado_cc[$c];
+                                            $resultado_fab = $resultado_fab[$c];
+                                            $result = $resultado_model[0]." ".$resultado_cc[0]."cc (".$resultado_fab[0]."/".$resultado_end[0].")";
+                                            print_r("<option>$result</option>");
+                                            $c = $c+1;
+
+                                        }
+
+
+                                    };
+                                    $c=0;
+                                    
+                                ?>
                         </select>
                     </div>
 
-                    <div class="column">
-                        <label for="plate" style="margin-left: 20%">Placa*</label>
-                        <input type="text" id="plate" style="margin-left: 20%">
-                    </div>
-                    
-                </div>
-                
-                <img src="images/icons/insert_photo.png" class="add_photo align">
+                    <div class="column" style="margin-left: 13%">
 
-                <button class="align create" onclick="button_test('foi');">Criar</button>
+                        <label for="ano_fab">Ano(fabricação)*</label>
+                        <input id="ano_fab" name="ano_fab" type="int" style="width: 140px">
+                        <br>
+                        <label for="ano_mod">Ano(modelo)</label>
+                        <input id="ano_mod" name="ano_mod" type="int" style="width: 140px">
+
+                    </div>
+                                
+                </div>
+                <br>
+                <label for="desc">Descrição:</label>
+                <textarea id="desc" name="desc"></textarea>
+
+                </div>
+
+                <div class="column align block">
+
+                    <div class="row linha" style="width: 100%">
+                                
+                        <div class="column">
+                            <label for="color">Cor*</label>
+                            <select id="color" name="color">
+                                <option value="null">Escolha a sua opção</option>
+                                <option value="blue">azul</option>
+                                <option value="black">preto</option>
+                                <option value="red">vermelho</option>
+                                <option value="gray">cinza</option>
+                                <option value="orange">laranja</option>
+                                <option value="white">branco</option>
+                                <option value="purple">roxo</option>
+                                <option value="yellow">amarelo</option>
+                                <option value="green">verde</option>
+                            </select>
+                        </div>
+
+                        <div class="column">
+                            <label for="plate" style="margin-left: 20%">Placa*</label>
+                            <input type="text" id="plate" name="plate" style="margin-left: 20%">
+                        </div>
+                                
+                    </div>
+                                
+                    <img src="images/icons/insert_photo.png" class="add_photo align">
+                    
+                    <input type="hidden" name="func" value="5">
+                    <input type="submit" class="align create" value="criar">
+
+                </div>
 
             </div>
-
-        </div>
-
+        </form>
 
 
         
