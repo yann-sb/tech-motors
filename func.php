@@ -214,9 +214,15 @@
         $color_create = $_POST["color"];
         $plate_create = $_POST["plate"];
         $user_id = $_SESSION['id_usuario'];
+        
 
         if($model_create!=="" && $ano_fab_create!=="" && $color_create!=="" && $plate_create!==""){
             
+            $imagem = $_FILES['imagem']; 
+            $extensao = $imagem['type'];
+            $conteudo = file_get_contents($imagem['tmp_name']);
+            $base64 = "data:".$extensao.";base64,".base64_encode($conteudo);
+
             echo $model_create;
             echo "<br>";
             echo $ano_fab_create;
@@ -226,10 +232,13 @@
             echo $plate_create;
             echo "<br>";
             echo $user_id[0];
-            
+            echo "<br>";
+            echo "<br>";
+
 
           
-            $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,moto_desc,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:moto_desc,:model_id,:user_id)");
+            $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,moto_desc,moto_image,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:moto_desc,:moto_image,:model_id,:user_id)");
+            $comando->bindValue(":moto_image",$base64);
             $comando->bindValue(":moto_desc",$desc_create);
             $comando->bindValue(":year_mod",$ano_mod_create);
             $comando->bindValue(":nick",$nick_create);
@@ -240,7 +249,9 @@
             $comando->bindValue(":user_id",$user_id[0]);
             $comando->execute();
 
-            // echo pag_up('create_moto_pg.php');
+            $_SESSION['brand_select'] = null;
+
+            echo pag_up('create_moto_pg.php');
 
         }
         elseif($brand_selector!==null){

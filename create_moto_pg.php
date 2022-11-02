@@ -22,6 +22,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <title>Listagem</title>
 </head>
+<style>
+
+    .add_photo{
+        width: 200px;
+        margin-top: 20px
+    }
+
+    #desc{
+
+        height: 50px;
+        max-height: 200px;
+
+        min-width: 325px;
+        max-width: 325px;
+        width: 325px;
+
+        background-color: #507D72;
+        border-radius: 15px;
+        border-style: none;
+    }
+
+    .block_bk{
+        color: aliceblue;
+    }
+
+    #image_add{
+        display:none;
+    }
+
+
+</style>
 <body>
     
     <div class="column align block_bk">
@@ -37,7 +68,7 @@
 
         <div class="align line"></div>
 
-        <form action="func.php" method="POST">
+        <form action="func.php" method="POST" enctype="multipart/form-data">
             <div class="row linha">
                 <div class="column align block">
 
@@ -174,9 +205,14 @@
                         </div>
                                 
                     </div>
-                                
-                    <img src="images/icons/insert_photo.png" class="add_photo align">
+                    <label class="align" for="image_add"> 
+
+                        <span id="image_show"><img id="preview" class="add_photo" src="images/icons/insert_photo.png"></span>
                     
+                    </label>
+
+                    <input type="file" id="image_add" name="imagem" multiple accept="image/*">
+
                     <input type="hidden" name="func" value="5">
                     <input type="submit" class="align create" value="criar">
 
@@ -189,6 +225,40 @@
         
     </div>
 
-    <script src="js/js_login_1.js"></script>
+    <script >
+    
+        /*função para alterar a pagina*/
+        function pag_up(p){    
+            // console.log("entrou");  
+            window.location.href = p
+        };
+
+
+        // function change_photo(a){
+            
+        //     var foto = document.getElementById('image_add').files[0];
+        //     var arquivo = document.querySelector('input[type=file]') ;
+
+        //     if (arquivo!==null) {
+        //         place.value = foto;
+        //     } else {
+        //         foto.src = "";
+        //     }
+
+        //     console.log("foi");
+        // };
+
+        function readImage() {
+            if (this.files && this.files[0]) {
+                var file = new FileReader();
+                file.onload = function(e) {
+                    document.getElementById("preview").src = e.target.result;
+                };       
+                file.readAsDataURL(this.files[0]);
+            }
+        }
+        document.getElementById("image_add").addEventListener("change", readImage, false);
+
+    </script>
 </body>
 </html>
