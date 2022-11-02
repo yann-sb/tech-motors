@@ -25,6 +25,7 @@
 <style>
 
     .add_photo{
+        height: 200px;
         width: 200px;
         margin-top: 20px
     }

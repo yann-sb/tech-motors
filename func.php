@@ -2,6 +2,9 @@
     session_start();
     include("conexao.php");
 
+    $rank = $_POST["rank"];
+    $user_id = $_POST["adm_check"];
+    $delete = $_POST["delete"];
     $func = $_POST["func"];
     
 
@@ -168,11 +171,6 @@
 
     }
 
-
-    $rank = $_POST["rank"];
-    $user_id = $_POST["adm_check"];
-    $delete = $_POST["delete"];
-
     if($rank!==null){
         $comando = $pdo->prepare("UPDATE usuario SET user_rank=$rank WHERE user_id=$user_id");
 
@@ -203,7 +201,7 @@
 
     }
 
-    if($func==5){
+    if($func=="5"){
 
         $brand_selector = $_POST["brand"];
         $nick_create = $_POST["nick"];
@@ -223,17 +221,17 @@
             $conteudo = file_get_contents($imagem['tmp_name']);
             $base64 = "data:".$extensao.";base64,".base64_encode($conteudo);
 
-            echo $model_create;
-            echo "<br>";
-            echo $ano_fab_create;
-            echo "<br>";
-            echo $color_create;
-            echo "<br>";
-            echo $plate_create;
-            echo "<br>";
-            echo $user_id[0];
-            echo "<br>";
-            echo "<br>";
+            // echo $model_create;
+            // echo "<br>";
+            // echo $ano_fab_create;
+            // echo "<br>";
+            // echo $color_create;
+            // echo "<br>";
+            // echo $plate_create;
+            // echo "<br>";
+            // echo $user_id[0];
+            // echo "<br>";
+            // echo "<br>";
 
 
           
@@ -268,5 +266,27 @@
     
         
     }
+
+    if($func=="6"){
+
+        $desc = $_POST["desc"];
+        $price = $_POST["price"];
+        $type = $_POST["type"];
+
+        $comando = "SELECT service_id FROM service WHERE service_type='$type'";
+        $result = $pdo->query($comando)->fetch();
+        $service_id = $result[0];
+
+        $user_id = $_SESSION['id_usuario'];
+        $user_id = $user_id[0];
+
+        $comando = $pdo->prepare("INSERT INTO note(note_price,note_desc,service_id,moto_id) VALUES(:price,:note_desc,:service_id,:moto_id)");
+        $comando->bindValue(":price",$price);
+        $comando->bindValue(":note_desc",$desc);
+        $comando->bindValue(":service_id",$service_id);
+        $comando->bindValue(":moto_id",$user_id);
+        $comando->execute();
+    }
+
 
 ?>

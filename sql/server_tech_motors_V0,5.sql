@@ -87,17 +87,31 @@ constraint fk_user__user_id foreign key(user_id) references usuario(user_id)
 
 );
 
+
 create table service(
 service_id int auto_increment primary key,
-service_price int not null,
-service_type varchar(10) not null,
-service_desc varchar(280),
+service_type varchar(30)
+);
 
-moto_id int,
+create table note(
+note_id int auto_increment primary key,
+note_price int not null,
+note_desc varchar(280),
 
-constraint fk_service_moto_id foreign key(moto_id) references moto_user(moto_id)
+service_id int not null,
+moto_id int not null,
+
+constraint fk_note_moto_id foreign key(moto_id) references moto_user(moto_id),
+constraint fk_note_service_id foreign key(service_id) references service(service_id)
 
 );
 
 
 insert into usuario(user_rank,user_nick,user_pass,user_cpf) values("1","Owner acount","b3duZXJfMTIzNA==","11122233345");
+
+
+insert into service(service_type) value("Preventiva");
+insert into service(service_type) value("Troca de óleo");
+insert into service(service_type) value("Corretiva");
+insert into service(service_type) value("Corretiva - acidente");
+insert into service(service_type) value("Customização");
