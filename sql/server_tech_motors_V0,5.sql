@@ -93,9 +93,11 @@ service_id int auto_increment primary key,
 service_type varchar(30)
 );
 
+
 create table note(
 note_id int auto_increment primary key,
-note_price int not null,
+note_price real not null,
+note_km	int,
 note_desc varchar(280),
 
 service_id int not null,
