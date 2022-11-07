@@ -31,7 +31,7 @@
                 $_SESSION['id_usuario'] = $result_id;
                 $_SESSION['loggedin'] = true;    
                     
-                echo pag_up('profile.html');
+                echo pag_up('profile.php');
             }else{
                 $result_mail = $pdo->query($sql_mail)->fetch();
                 if(base64_decode($result_mail[0])==$pass){
@@ -39,7 +39,7 @@
                     $_SESSION['id_usuario'] = $result_id;
                     $_SESSION['loggedin'] = true;    
                     
-                    echo pag_up('profile.html');
+                    echo pag_up('profile.php');
                     
                 }else{
                     echo pag_up('index.php');
