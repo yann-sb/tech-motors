@@ -63,6 +63,30 @@
         border-bottom-color: blanchedalmond;
     }
 
+    #moto_quant{
+        width: 35px;
+        height: 35px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: red;
+        border-radius: 50%; 
+
+        font-size: 25px;
+        margin-left: 10px; 
+    }
+
+    .border{
+        width: 190px;
+        height: 40px;
+
+        padding: 5px;
+
+        border-width: 2px;
+        border-style: solid;
+        border-color: blanchedalmond;
+        border-radius: 10px
+    }
+
 </style>
 
 <body>
@@ -85,10 +109,38 @@
 
                 <img src="images/icons/add_photo.png" style="margin-top: 150px">
 
+                
+
+            </div>
+
+            <div class="column">
+                
                 <div class="column top_left">
-                    
+                    <div class="row align border">
+                        <span class="top">Quantidade de motos:</span>
+                        <div id="moto_quant"><span style="margin-left:5px;"></span></div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div class="column top_left">
+                    <div class="row align border">
+                        <span class="top">Total gasto:</span>
+                        <div id="moto_total"><span></span></div>
+                    </div>
                 </div>
 
+                <br>
+
+                <div class="column top_left">
+                    <div class="row align border">
+                        <span class="top">Média de gastos:</span>
+                        <div id="moto_media"><span></span></div>
+                    </div>
+                </div>
+
+ 
             </div>
 
         </div>
@@ -99,8 +151,19 @@
 
             </div>
             
-            <div class="bottom_right">
-
+            <div class="bottom_right column">
+                <br>
+                <button>
+                    Sair da conta
+                </button>
+                <br>
+                <button>
+                    Menu de administrador
+                </button>
+                <br>
+                <button>
+                    Relatórios
+                </button>
             </div>
 
         </div>
