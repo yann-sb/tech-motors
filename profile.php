@@ -105,6 +105,12 @@
         color: blanchedalmond;
     }
 
+    #table_bk{¨
+        background-color: #3D5A73;
+        width:100%;
+        height:130px;
+    }
+
 </style>
 
 <body>
@@ -195,6 +201,32 @@
                     <img src="images/icons/bar.png" style="width: 100%;" onclick="pag_up('create_moto_pg.php');">
                 </div>
 
+                <div style="width:95%" class="align">
+                    
+                    <div id="table_bk" class="row">
+                        <div id="counter">
+
+                        </div>
+
+                        <div>
+                            <span id="moto_image"></span>
+                            <div id="moto_title">
+                                <span id="moto_nick"></span>
+                                <div id="color"></div>
+                            </div>
+                        </div>
+
+                        <label for="plate">
+                            <span id="leter"></span>
+                            <span id="number"></span>
+                        </label>
+
+                        <img src="images/icons/plate.png" style="width:90px;height:80px;" >
+
+                    </div>
+
+                </div>
+                
             </div>
             
             <div class="bottom_right column">
