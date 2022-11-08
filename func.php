@@ -211,7 +211,7 @@
         $desc_create = $_POST["desc"];
         $color_create = $_POST["color"];
         $plate_create = $_POST["plate"];
-        $user_id = $_SESSION['id_usuario'];
+        $id_user = $_SESSION['id_usuario'];
         
 
         if($model_create!=="" && $ano_fab_create!=="" && $color_create!=="" && $plate_create!==""){
@@ -244,7 +244,7 @@
             $comando->bindValue(":year_fab",$ano_fab_create);
             $comando->bindValue(":color",$color_create);
             $comando->bindValue(":plate",$plate_create);
-            $comando->bindValue(":user_id",$user_id[0]);
+            $comando->bindValue(":user_id",$id_user[0]);
             $comando->execute();
 
             $_SESSION['brand_select'] = null;
@@ -288,5 +288,26 @@
         $comando->execute();
     }
 
+    if($func=="7"){
+        $imagem = $_FILES['imagem']; 
+        $user_id = $_POST['user_id'];
+        
+
+        $extensao = $imagem['type'];
+        $conteudo = file_get_contents($imagem['tmp_name']);
+        $base64 = "data:".$extensao.";base64,".base64_encode($conteudo);
+
+        echo $base64;
+        echo "<br>";
+        
+
+        $comando = $pdo->prepare("UPDATE usuario SET user_image=$base64 WHERE user_id='$user_id'");
+
+        print_r ($comando);
+        // $comando->execute();
+
+        // echo pag_up('profile.php');
+
+    }
 
 ?>
