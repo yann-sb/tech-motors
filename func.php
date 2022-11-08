@@ -297,16 +297,12 @@
         $conteudo = file_get_contents($imagem['tmp_name']);
         $base64 = "data:".$extensao.";base64,".base64_encode($conteudo);
 
-        echo $base64;
-        echo "<br>";
-        
+        $comando = $pdo->prepare("UPDATE usuario SET user_image='$base64' WHERE user_id='$user_id'");
 
-        $comando = $pdo->prepare("UPDATE usuario SET user_image=$base64 WHERE user_id='$user_id'");
 
-        print_r ($comando);
-        // $comando->execute();
+        $comando->execute();
 
-        // echo pag_up('profile.php');
+        echo pag_up('profile.php');
 
     }
 

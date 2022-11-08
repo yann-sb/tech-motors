@@ -175,7 +175,7 @@
 
                 $user_image = $user_image[0];
 
-                if($user_image!==""){
+                if($user_image!==null){
                     echo '<img id="user_image" class="add_photo" src="'.$user_image.'">';
                 }
                 else{
@@ -192,7 +192,7 @@
             <div class="bottom_left">
                 
                 <div style="width:95%;margin-top: 20px" class="align">
-                    <img src="images/icons/bar.png" style="width: 100%;">
+                    <img src="images/icons/bar.png" style="width: 100%;" onclick="pag_up('create_moto_pg.php');">
                 </div>
 
             </div>
