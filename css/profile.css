@@ -1,0 +1,120 @@
+.fundo{
+        width: 80%;
+        height: 100%;  
+
+        max-width: 1300px;
+        max-height: 1940px; 
+    }
+
+    .top_bk{
+        margin-top: 3%;
+        width: 100%;
+        height: 230px;
+        background-color: #2F3D40;
+    }
+
+    .bottom_bk{
+        width: 100%;
+        height: 65%;
+    }
+
+    .bottom_left{
+        width: 75%;
+        height: 100%;
+        background-color: #2F3D40;
+        margin-right: 20px; 
+    }
+    
+    .bottom_right{
+        width: 25%;
+        height: 100%;
+        background-color: #2F3D40;
+    }
+
+    #user_image{
+        margin-left: 10px;
+        margin-top: 30px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    .border_bt{
+        color: blanchedalmond;
+        
+
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: blanchedalmond;
+    }
+
+    #moto_quant{
+        width: 35px;
+        height: 35px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: red;
+        border-radius: 50%; 
+
+        font-size: 25px;
+        margin-left: 10px; 
+    }
+
+    .border{
+        width: 190px;
+        height: 40px;
+
+        padding: 5px;
+
+        border-width: 2px;
+        border-style: solid;
+        border-color: blanchedalmond;
+        border-radius: 10px;
+
+        color: blanchedalmond;
+    }
+
+    .table_bk{
+        background-color: #3D5A73;
+        width:100%;
+        height:100px;
+    }
+
+    .counter{
+        height: 100%;
+        width: 98px;
+    }
+
+    .counter h2{
+        margin-top: 35px;
+    }
+
+    .up_line{
+        height: 100%;
+        width: 1px;
+        background-color: black;
+    }
+
+    .bt_midle{
+        width: 70%;
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-right: 10px
+    }
+
+    .plate{
+        width:80px;
+        height:80px;
+        background-color: azure;
+        margin-left: 25px;
+        margin-top: 10px;
+        border-radius: 20px;
+        border-color: #2F3D40;
+        border-style: solid;
+        border-width: 2px;
+    }
+
+    .plate_top{
+        width: 100%;
+        background-color: 
+    }

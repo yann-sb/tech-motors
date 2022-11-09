@@ -7,6 +7,13 @@
     session_start();
     $user_id = $_SESSION["id_usuario"];
 
+    $sql = "SELECT user_rank FROM usuario WHERE user_id='$user_id[0]'";
+
+    $user_rank = $pdo->query($sql)->fetch();
+
+    $user_rank = $user_rank[0];
+
+
     $sql = "SELECT user_nick FROM usuario WHERE user_id='$user_id[0]'";
 
     $user_name = $pdo->query($sql)->fetch();
@@ -26,93 +33,6 @@
     <title>Document</title>
     
 </head>
-
-<style>
-
-    .fundo{
-        width: 80%;
-        height: 100%;  
-
-        max-width: 1300px;
-        max-height: 1940px; 
-    }
-
-    .top_bk{
-        margin-top: 3%;
-        width: 100%;
-        height: 230px;
-        background-color: #2F3D40;
-    }
-
-    .bottom_bk{
-        width: 100%;
-        height: 65%;
-    }
-
-    .bottom_left{
-        width: 75%;
-        height: 100%;
-        background-color: #2F3D40;
-        margin-right: 20px; 
-    }
-    
-    .bottom_right{
-        width: 25%;
-        height: 100%;
-        background-color: #2F3D40;
-    }
-
-    #user_image{
-        margin-left: 10px;
-        margin-top: 30px;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-    }
-
-    .border_bt{
-        color: blanchedalmond;
-        
-
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-bottom-color: blanchedalmond;
-    }
-
-    #moto_quant{
-        width: 35px;
-        height: 35px;
-        border-style: solid;
-        border-width: 2px;
-        border-color: red;
-        border-radius: 50%; 
-
-        font-size: 25px;
-        margin-left: 10px; 
-    }
-
-    .border{
-        width: 190px;
-        height: 40px;
-
-        padding: 5px;
-
-        border-width: 2px;
-        border-style: solid;
-        border-color: blanchedalmond;
-        border-radius: 10px;
-
-        color: blanchedalmond;
-    }
-
-    #table_bk{
-        background-color: #3D5A73;
-        width:100%;
-        height:130px;
-    }
-
-</style>
-
 <body>
 
     <div class="align column fundo">
@@ -202,29 +122,39 @@
                 <div style="width:95%;margin-top: 20px" class="align">
                     <img src="images/icons/bar.png" style="width: 100%;" onclick="pag_up('create_moto_pg.php');">
                 </div>
-
+                
                 <div style="width:95%" class="align">
                     
-                    <div id="table_bk" class="row">
-                        <div id="counter">
-
+                    <div class="row table_bk">
+                        <div class="counter">
+                            <h2 class="text_align"></h2>
                         </div>
 
-                        <div>
-                            <span id="moto_image"></span>
-                            <div id="moto_title">
-                                <span id="moto_nick"></span>
-                                <div id="color"></div>
+                        <div class="up_line"></div>
+
+                        <div class="bt_midle row">
+                            <span id="moto_image"><img src="" style="width:80px;height:80px;" ></span>
+                            <div class="column">
+                                <div id="moto_title">
+                                    <span class="moto_nick">asdad</span>
+                                    <div class="moto_color"></div>
+                                </div>
                             </div>
                         </div>
+                        
+                        <div class="up_line"></div>
 
                         <label for="plate">
                             <span id="leter"></span>
                             <span id="number"></span>
                         </label>
 
-                        <img src="images/icons/plate.png" style="width:90px;height:80px;" >
+                        <div class="plate">
 
+                            <div class="plate_top text_align">BRASIL</div>
+
+
+                        </div>        
                     </div>
 
                 </div>
@@ -232,18 +162,34 @@
             </div>
             
             <div class="bottom_right column">
-                <br>
-                <button>
+                
+                <?php
+
+                echo "<br>
+                    <button>
                     Sair da conta
-                </button>
-                <br>
-                <button>
-                    Menu de administrador
-                </button>
-                <br>
-                <button>
-                    Relatórios
-                </button>
+                    </button>
+                    <br>";
+                
+                if($user_rank==1){
+                    echo "<button>
+                        Menu de administrador
+                        </button>
+                        <br>
+                        <button>
+                        Relatórios
+                        </button>";
+                }
+
+                if($user_rank==2){
+                    echo "<button>
+                        Menu de administrador
+                        </button>";
+                }
+
+
+            ?>
+               
             </div>
 
         </div>
