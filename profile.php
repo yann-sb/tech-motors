@@ -119,12 +119,43 @@
 
             <div class="bottom_left">
                 
+                <?php
+
+                    $sql = "SELECT moto_id FROM moto_user WHERE user_id='$user_id[0]'";
+
+                    $moto_id = $pdo->query($sql)->fetch();
+
+                    $moto_id = $moto_id[0];
+
+                    $sql = "SELECT moto_nick FROM moto_user WHERE user_id='$user_id[0]'";
+
+                    $moto_nick = $pdo->query($sql)->fetch();
+
+                    $moto_nick = $moto_nick[0];
+
+                    $sql = "SELECT moto_image FROM moto_user WHERE user_id='$user_id[0]'";
+
+                    $moto_image = $pdo->query($sql)->fetch();
+
+                    $moto_image = $moto_image[0];
+
+                    $i_list = count($moto_id);
+                    
+
+                ?>
+
                 <div style="width:95%;margin-top: 20px" class="align">
                     <img src="images/icons/bar.png" style="width: 100%;" onclick="pag_up('create_moto_pg.php');">
                 </div>
                 
                 <div style="width:95%" class="align">
                     
+                    <?php
+                    
+                    
+                    
+                    ?>
+
                     <div class="row table_bk">
                         <div class="counter">
                             <h2 class="text_align"></h2>

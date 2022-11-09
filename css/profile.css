@@ -97,9 +97,9 @@
 
     .bt_midle{
         width: 70%;
-        padding-left: 15px;
+        padding-left: 13px;
         padding-top: 10px;
-        padding-right: 7px
+        padding-right: 8px
     }
 
     .plate{
@@ -120,4 +120,19 @@
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         color: blanchedalmond;
+    }
+
+    .moto_nick{
+        color: blanchedalmond;
+        margin-left: 15px
+    }
+
+    .moto_color{
+        width: 15px;
+        height: 15px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: black;
+        margin-left: 15px;
+        margin-top: 40px
     }
