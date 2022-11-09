@@ -33,14 +33,14 @@
         width: 80%;
         height: 100%;  
 
-        min-width: 800px;
-        min-height: 750px;
+        max-width: 1300px;
+        max-height: 1940px; 
     }
 
     .top_bk{
         margin-top: 3%;
         width: 100%;
-        height: 30%;
+        height: 230px;
         background-color: #2F3D40;
     }
 
@@ -105,7 +105,7 @@
         color: blanchedalmond;
     }
 
-    #table_bk{¨
+    #table_bk{
         background-color: #3D5A73;
         width:100%;
         height:130px;
@@ -180,6 +180,8 @@
                 $user_image = $pdo->query($sql)->fetch();
 
                 $user_image = $user_image[0];
+
+                // echo $user_image;
 
                 if($user_image!==null){
                     echo '<img id="user_image" class="add_photo" src="'.$user_image.'">';
