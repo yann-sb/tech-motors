@@ -82,7 +82,7 @@
 
     .counter{
         height: 100%;
-        width: 98px;
+        width: 90px;
     }
 
     .counter h2{
@@ -99,7 +99,7 @@
         width: 70%;
         padding-left: 15px;
         padding-top: 10px;
-        padding-right: 10px
+        padding-right: 7px
     }
 
     .plate{
@@ -116,5 +116,8 @@
 
     .plate_top{
         width: 100%;
-        background-color: 
+        background-color: #3632f3;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        color: blanchedalmond;
     }

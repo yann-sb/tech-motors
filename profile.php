@@ -152,8 +152,13 @@
                         <div class="plate">
 
                             <div class="plate_top text_align">BRASIL</div>
-
-
+                            <div class="column">
+                            
+                                <span class="plate_letter">aaa</span>
+                                <span class="plate_number">2a88</span>
+                                <span class="BR">BR</span>
+                            
+                            </div>
                         </div>        
                     </div>
 
