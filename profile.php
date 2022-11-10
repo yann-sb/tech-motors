@@ -33,7 +33,7 @@
     <title>Document</title>
     
 </head>
-<body>
+<body style="overflow: hidden;">
 
     <div class="align column fundo">
         
@@ -117,81 +117,84 @@
         <br><br>
         <div class="bottom_bk row">
 
-            <div class="bottom_left">
-                
-                <?php
-
-                    $sql = "SELECT moto_id FROM moto_user WHERE user_id='$user_id[0]'";
-
-                    $moto_id = $pdo->query($sql)->fetch();
-
-                    $moto_id = $moto_id[0];
-
-                    $sql = "SELECT moto_nick FROM moto_user WHERE user_id='$user_id[0]'";
-
-                    $moto_nick = $pdo->query($sql)->fetch();
-
-                    $moto_nick = $moto_nick[0];
-
-                    $sql = "SELECT moto_image FROM moto_user WHERE user_id='$user_id[0]'";
-
-                    $moto_image = $pdo->query($sql)->fetch();
-
-                    $moto_image = $moto_image[0];
-
-                    $i_list = count($moto_id);
-                    
-
-                ?>
+            <div class="bottom_left" style="overflow-y: auto;">
 
                 <div style="width:95%;margin-top: 20px" class="align">
                     <img src="images/icons/bar.png" style="width: 100%;" onclick="pag_up('create_moto_pg.php');">
                 </div>
                 
-                <div style="width:95%" class="align">
+                <div style="width:95%;" class="align">
                     
                     <?php
-                    
-                    
-                    
+                        $sql = "SELECT moto_id FROM moto_user WHERE user_id='$user_id[0]'";
+
+                        $moto_id = $pdo->query($sql)->fetchAll();
+
+                        $sql = "SELECT moto_nick FROM moto_user WHERE user_id='$user_id[0]'";
+
+                        $moto_nick = $pdo->query($sql)->fetchAll();
+
+                        $sql = "SELECT moto_image FROM moto_user WHERE user_id='$user_id[0]'";
+
+                        $moto_image = $pdo->query($sql)->fetchAll();
+                        
+                        $sql = "SELECT moto_color FROM moto_user WHERE user_id='$user_id[0]'";
+
+                        $moto_color = $pdo->query($sql)->fetchAll();
+                        
+                        $i_list = count($moto_id);  
+                        $i_list = $i_list-1
                     ?>
 
-                    <div class="row table_bk">
-                        <div class="counter">
-                            <h2 class="text_align"></h2>
-                        </div>
+                    
 
-                        <div class="up_line"></div>
+                    <?php
+                        $counter=1;
+                        $c=0;
+                        // echo $i_list;
+                        // echo "<br>";
+                        // echo "<br>";
+                        while($c<=$i_list){
+                            // echo $counter;
+                            // echo "<br>";
+                            // echo $c;
+                            // echo "<br>";
+                            // echo $moto_color[$c][0];
+                            // echo "<br>";
+                            // echo $moto_nick[$c][0];
+                            // echo "<br>";
+                            // echo $moto_id[$c][0];
+                            // echo "<br>";
+                            // echo "<br>";
 
-                        <div class="bt_midle row">
-                            <span id="moto_image"><img src="" style="width:80px;height:80px;" ></span>
-                            <div class="column">
-                                <div id="moto_title">
-                                    <span class="moto_nick">asdad</span>
-                                    <div class="moto_color"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="up_line"></div>
-
-                        <label for="plate">
-                            <span id="leter"></span>
-                            <span id="number"></span>
-                        </label>
-
-                        <div class="plate">
-
-                            <div class="plate_top text_align">BRASIL</div>
-                            <div class="column">
-                            
-                                <span class="plate_letter">aaa</span>
-                                <span class="plate_number">2a88</span>
-                                <span class="BR">BR</span>
-                            
-                            </div>
-                        </div>        
-                    </div>
+                            echo '<div class="row table_bk" style="margin-bottom:5px;">';
+                            echo '<div class="counter"><h2 class="text_align">'.$counter.'</h2></div>';
+                            echo '<div class="up_line"></div>';
+                            echo '<div class="bt_midle row">';
+                            echo '<span id="moto_image"><img src="'.$moto_image[$c][0].'" style="width:80px;height:80px;"></span>';                         
+                            echo '<div class="column">';
+                            echo '<div id="moto_title">';
+                            echo '<span class="moto_nick">'.$moto_nick[$c][0].'</span>';
+                            echo '<div class="moto_color" style="background-color:'.$moto_color[$c][0].'"></div>';
+                            echo '</div></div></div>';
+                            echo '<div class="up_line"></div>';
+                            echo '<label for="plate">';
+                            echo '<span id="leter"></span>';
+                            echo '<span id="number"></span>';
+                            echo '</label>';
+                            echo '<div class="plate">';
+                            echo '<div class="plate_top text_align">BRASIL</div>';
+                            echo '<div class="column">';                                
+                            echo '<span class="plate_letter">aaa</span>';
+                            echo '<span class="plate_number">2a88</span>';
+                            echo '<span class="BR">BR</span>';
+                            echo'</div></div></div>';  
+                            $c++;
+                            $counter++;
+                        }
+                        $c=0;
+                        $counter=0
+                    ?>
 
                 </div>
                 

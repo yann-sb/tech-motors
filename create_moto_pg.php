@@ -61,7 +61,7 @@
         
         <div class="row cem text_align">
             
-                <img src="images/icons/arrow.png" class="return" onclick="pag_up('user_perfil_pg.html');">
+                <img src="images/icons/arrow.png" class="return" onclick="pag_up('profile.php');">
             
                 <h2 style="width: 90%;">NOVA MOTO</h2>
 
