@@ -1,0 +1,12 @@
+.block_fundo{
+    padding-top: 20px;
+    height: 100%;
+    width: 60%;
+}
+
+.block_top{
+    padding-top: 20px;
+    width: 100%;
+    height: 50%;
+    background-color: #2F3D40;
+}

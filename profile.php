@@ -1,5 +1,4 @@
 <?php 
-    
     error_reporting(0);
     ini_set('display_errors', 0);
 
@@ -7,19 +6,31 @@
     session_start();
     $user_id = $_SESSION["id_usuario"];
 
-    $sql = "SELECT user_rank FROM usuario WHERE user_id='$user_id[0]'";
-
-    $user_rank = $pdo->query($sql)->fetch();
+    $user_rank = $pdo->query("SELECT user_rank FROM usuario WHERE user_id='$user_id[0]'")->fetch();
 
     $user_rank = $user_rank[0];
 
-
-    $sql = "SELECT user_nick FROM usuario WHERE user_id='$user_id[0]'";
-
-    $user_name = $pdo->query($sql)->fetch();
+    $user_name = $pdo->query("SELECT user_nick FROM usuario WHERE user_id='$user_id[0]'")->fetch();
 
     $user_name = $user_name[0];
 
+    $moto_id = $pdo->query( "SELECT moto_id FROM moto_user WHERE user_id='$user_id[0]'")->fetchAll();
+
+    $moto_nick = $pdo->query("SELECT moto_nick FROM moto_user WHERE user_id='$user_id[0]'")->fetchAll();
+
+    $moto_image = $pdo->query("SELECT moto_image FROM moto_user WHERE user_id='$user_id[0]'")->fetchAll();
+
+    $moto_color = $pdo->query("SELECT moto_color FROM moto_user WHERE user_id='$user_id[0]'")->fetchAll();  
+
+    $i_list = count($moto_id);  
+
+    $quant = $i_list;
+
+    $i_list = $i_list-1;
+
+    $user_image = $pdo->query("SELECT user_image FROM usuario WHERE user_id='$user_id[0]'")->fetch();
+
+    $user_image = $user_image[0];
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +57,19 @@
                 <div class="column top_left">
                     <div class="row align border">
                         <span class="top">Quantidade de motos:</span>
-                        <div id="moto_quant"><span style="margin-left:5px;"></span></div>
+                        <div id="moto_quant"><span style="margin-left:5px;">
+
+                                <?php 
+                                    if($quant<10){
+                                        echo "0".$quant;
+                                    }
+                                    else{
+                                        echo $quant;
+                                    }
+                                 
+                                ?>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -94,14 +117,6 @@
         </div>
 
             <?php 
-            
-                $sql = "SELECT user_image FROM usuario WHERE user_id='$user_id[0]'";
-
-                $user_image = $pdo->query($sql)->fetch();
-
-                $user_image = $user_image[0];
-
-                // echo $user_image;
 
                 if($user_image!==null){
                     echo '<img id="user_image" class="add_photo" src="'.$user_image.'">';
@@ -125,47 +140,14 @@
                 
                 <div style="width:95%;" class="align">
                     
-                    <?php
-                        $sql = "SELECT moto_id FROM moto_user WHERE user_id='$user_id[0]'";
-
-                        $moto_id = $pdo->query($sql)->fetchAll();
-
-                        $sql = "SELECT moto_nick FROM moto_user WHERE user_id='$user_id[0]'";
-
-                        $moto_nick = $pdo->query($sql)->fetchAll();
-
-                        $sql = "SELECT moto_image FROM moto_user WHERE user_id='$user_id[0]'";
-
-                        $moto_image = $pdo->query($sql)->fetchAll();
-                        
-                        $sql = "SELECT moto_color FROM moto_user WHERE user_id='$user_id[0]'";
-
-                        $moto_color = $pdo->query($sql)->fetchAll();
-                        
-                        $i_list = count($moto_id);  
-                        $i_list = $i_list-1
-                    ?>
+                    
 
                     
 
                     <?php
                         $counter=1;
                         $c=0;
-                        // echo $i_list;
-                        // echo "<br>";
-                        // echo "<br>";
                         while($c<=$i_list){
-                            // echo $counter;
-                            // echo "<br>";
-                            // echo $c;
-                            // echo "<br>";
-                            // echo $moto_color[$c][0];
-                            // echo "<br>";
-                            // echo $moto_nick[$c][0];
-                            // echo "<br>";
-                            // echo $moto_id[$c][0];
-                            // echo "<br>";
-                            // echo "<br>";
 
                             echo '<div class="row table_bk" style="margin-bottom:5px;">';
                             echo '<div class="counter"><h2 class="text_align">'.$counter.'</h2></div>';
@@ -197,31 +179,33 @@
                     ?>
 
                 </div>
-                
             </div>
             
             <div class="bottom_right column">
                 
                 <?php
 
-                echo "<br>
+                echo 
+                    "<br>
                     <button>
                     Sair da conta
                     </button>
                     <br>";
                 
                 if($user_rank==1){
-                    echo "<button>
+                    echo 
+                        '<button onClick="'.'pag_up('."'adm_menu.php'".')">
                         Menu de administrador
                         </button>
                         <br>
                         <button>
                         Relatórios
-                        </button>";
+                        </button>';
                 }
 
                 if($user_rank==2){
-                    echo "<button>
+                    echo   
+                        "<button>
                         Menu de administrador
                         </button>";
                 }
