@@ -10,6 +10,9 @@
     
     $moto_name = $pdo->query("SELECT model_name FROM model WHERE model_id='$model_id[0]'")->fetch();
     $moto_cc = $pdo->query("SELECT model_cc FROM model WHERE model_id='$model_id[0]'")->fetch();
+
+    $oil_id = $pdo->query("SELECT oil_id FROM model WHERE model_id='$model_id[0]'")->fetch();
+    $oil_cod = $pdo->query("SELECT oil_cod FROM oil_cod WHERE oil_id='$oil_id[0]'")->fetch();
 ?>
 
 
@@ -30,6 +33,22 @@
         height: 270px;
     }
 
+    .title_moto{
+        color: white;
+        font-size:25px;
+    }
+
+    .border{
+        border-style:solid;
+        border-radius:10px;
+        border-color:white;
+        border-width:2px;
+        color:white;
+        padding:10px;
+        width:150px;
+        margin-bottom:15px
+    }
+
 </style>
 <body>
     <div class="block_fundo align column">
@@ -46,25 +65,26 @@
                 ?>
             </div>
             <div class="top_right align column">
-                <div class="text_align row align">
+                <div class="text_align row align border">
                     Total gasto:
                     <span id="total_value"></span>
                 </div>
 
-                <div class="text_align column">
+                <div class="text_align column border" style="height:50px">
                     Óleo recomendado:
-                    <span id="oil"></span>
+                    <span id="oil" style="margin-top:5px"><?php echo $oil_cod[0]; ?></span>
                 </div>
 
-                <div class="text_align column">
+                <div class="text_align column border">
                     Ultima troca de óleo:
                     <span id="oil_km"></span>
                 </div>
                 <span id="oil_rec"></span>
 
-                <div class="text_align column" onclick="pag_up('add_desc_pg.php')">
-                    Adicionar nota
-                </div>
+                <form action='add_desc_pg.php' id="form_1" method='post' class="text_align column border">
+                    <input type="hidden" name="moto_id" value=<?php echo '"'.$moto_id.'"' ?>>
+                    <div onclick='sub();'>Adicionar nota+</div>
+                </form>
                 
             </div>
         </div>
@@ -72,7 +92,15 @@
 
     </div>
 
+<script>
 
+    function sub(){
+
+        form_1.submit();
+
+    }
+
+</script>
 <script src="js/js_login_1.js"></script>
 </body>
 </html>
