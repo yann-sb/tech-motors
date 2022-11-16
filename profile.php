@@ -148,8 +148,8 @@
                         $counter=1;
                         $c=0;
                         while($c<=$i_list){
-
-                            echo '<div class="row table_bk" style="margin-bottom:5px;">';
+                            echo '<form action="moto_profile.php" id="form_1" method="post">';
+                            echo '<div class="row table_bk" style="margin-bottom:5px;" onclick="sub();">';
                             echo '<div class="counter"><h2 class="text_align">'.$counter.'</h2></div>';
                             echo '<div class="up_line"></div>';
                             echo '<div class="bt_midle row">';
@@ -170,7 +170,8 @@
                             echo '<span class="plate_letter">aaa</span>';
                             echo '<span class="plate_number">2a88</span>';
                             echo '<span class="BR">BR</span>';
-                            echo'</div></div></div>';  
+                            echo '<input type="hidden" name="moto_id" value="'.$moto_id[$c][0].'">';
+                            echo'</div></div></div></form>';  
                             $c++;
                             $counter++;
                         }
@@ -218,6 +219,16 @@
         </div>
 
     </div>
+
+<script>
+
+        function sub(){
+
+            form_1.submit();
+
+        }
+
+</script>
 
 <script src="js/js_login_1.js"></script>
 </body>

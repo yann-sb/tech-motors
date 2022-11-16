@@ -220,20 +220,6 @@
             $extensao = $imagem['type'];
             $conteudo = file_get_contents($imagem['tmp_name']);
             $base64 = "data:".$extensao.";base64,".base64_encode($conteudo);
-
-            // echo $model_create;
-            // echo "<br>";
-            // echo $ano_fab_create;
-            // echo "<br>";
-            // echo $color_create;
-            // echo "<br>";
-            // echo $plate_create;
-            // echo "<br>";
-            // echo $user_id[0];
-            // echo "<br>";
-            // echo "<br>";
-
-
           
             $comando = $pdo->prepare("INSERT INTO moto_user(moto_nick,moto_year_fab,moto_year_mod,moto_color,moto_plate,moto_desc,moto_image,model_id,user_id) VALUES(:nick,:year_fab,:year_mod,:color,:plate,:moto_desc,:moto_image,:model_id,:user_id)");
             $comando->bindValue(":moto_image",$base64);
@@ -249,7 +235,7 @@
 
             $_SESSION['brand_select'] = null;
 
-            echo pag_up('create_moto_pg.php');
+            echo pag_up('profile.php');
 
         }
         elseif($brand_selector!==null){
@@ -260,7 +246,7 @@
             $result_brand = $result_brand[0];
 
             $_SESSION['brand_select'] = $result_brand;
-            // echo $_SESSION['brand_select'];
+
             echo pag_up('create_moto_pg.php');
         }
     
