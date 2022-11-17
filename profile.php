@@ -194,7 +194,7 @@
                     </button>
                     <br>";
                 
-                if($user_rank==1){
+                if($user_rank==1 || $user_rank==2){
                     echo 
                         '<button onClick="'.'pag_up('."'adm_menu.php'".')">
                         Menu de administrador
@@ -204,14 +204,6 @@
                         Relatórios
                         </button>';
                 }
-
-                if($user_rank==2){
-                    echo   
-                        "<button>
-                        Menu de administrador
-                        </button>";
-                }
-
 
             ?>
                

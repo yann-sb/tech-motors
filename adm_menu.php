@@ -166,22 +166,16 @@
                         
                 <tbody>
                     <?php 
-                    // print_r ($resultado_user);
-                    // echo "<br>";
-                    // echo $i_user;
                     while ($i_user > 0) {
                         $result_id = $resultado_user[$i_user];
                         $result_id = $result_id[0];
                         $result_rank = $resultado_rank[$i_user];
                         $result_rank = $result_rank[0];
-                        // echo "<br>";
-                        // echo $result_id;
-                        // echo "<br>";
+                        
                         $comando = "SELECT user_nick FROM usuario WHERE user_id='$result_id'";
-                        // echo $comando;
-                        // echo "<br>";
+                        
                         $resultado_nick = $pdo->query($comando)->fetch();
-                        // echo $resultado_nick[0];
+                        
                         $result_nick = $resultado_nick[0];
 
                         if($result_rank==1){

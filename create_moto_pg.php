@@ -230,24 +230,11 @@
     
         /*função para alterar a pagina*/
         function pag_up(p){    
-            // console.log("entrou");  
+             
             window.location.href = p
         };
 
 
-        // function change_photo(a){
-            
-        //     var foto = document.getElementById('image_add').files[0];
-        //     var arquivo = document.querySelector('input[type=file]') ;
-
-        //     if (arquivo!==null) {
-        //         place.value = foto;
-        //     } else {
-        //         foto.src = "";
-        //     }
-
-        //     console.log("foi");
-        // };
 
         function readImage() {
             if (this.files && this.files[0]) {

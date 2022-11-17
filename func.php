@@ -174,11 +174,6 @@
     if($rank!==null){
         $comando = $pdo->prepare("UPDATE usuario SET user_rank=$rank WHERE user_id=$user_id");
 
-        // echo $rank;
-        // echo "<br>";
-
-        // print_r($comando);
-
         $comando->execute();
 
         echo pag_up('adm_menu.php');
@@ -187,11 +182,6 @@
     if($delete!==null){
         
         $comando = $pdo->prepare("UPDATE usuario SET user_rank=3 WHERE user_id=$delete");
-
-        // echo $rank;
-        // echo "<br>";
-
-        // print_r($comando);
 
         $comando->execute();
 
