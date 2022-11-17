@@ -255,6 +255,7 @@
 
     if($func=="6"){
 
+        $moto_id = $_SESSION["moto_id"];
         $desc = $_POST["desc"];
         $price = $_POST["price"];
         $type = $_POST["type"];
@@ -270,8 +271,9 @@
         $comando->bindValue(":price",$price);
         $comando->bindValue(":note_desc",$desc);
         $comando->bindValue(":service_id",$service_id);
-        $comando->bindValue(":moto_id",$user_id);
+        $comando->bindValue(":moto_id",$moto_id);
         $comando->execute();
+        echo pag_up('moto_profile.php');
     }
 
     if($func=="7"){

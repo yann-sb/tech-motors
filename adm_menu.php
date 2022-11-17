@@ -47,9 +47,9 @@
     <div class="align block_bk row">
         <div class="align column size">
 
-            <img src="images/icons/arrow.png" class="return" onclick="pag_up('profile.html');" style="margin-top: -15px;margin-left:-20px" >
+            <img src="images/icons/arrow.png" class="return" onclick="pag_up('profile.php');" style="margin-top: -15px;margin-left:-20px" >
 
-
+            <form action="func.php" method="post" class="align add" style="margin-top:-20px">
                 <div class="row">
                     <label for="brand_add" style="margin-right:3px;">Marca</label>
                     <input type="text" id="brand" name="brand">

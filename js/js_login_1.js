@@ -23,3 +23,8 @@ function button_test(a){
     console.log("o botão '"+a+"' ta indo");
 };
 
+function sub(){
+
+    form_1.submit();
+
+}

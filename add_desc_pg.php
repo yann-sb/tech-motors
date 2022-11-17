@@ -1,5 +1,7 @@
 <?php
     include("conexao.php");
+    session_start();
+    $moto_id = $_SESSION["moto_id"];
 ?>
 
 <!DOCTYPE html>

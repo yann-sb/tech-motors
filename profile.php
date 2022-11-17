@@ -4,6 +4,7 @@
 
     include("conexao.php");
     session_start();
+    $_SESSION["moto_id"] = null;
     $user_id = $_SESSION["id_usuario"];
 
     $user_rank = $pdo->query("SELECT user_rank FROM usuario WHERE user_id='$user_id[0]'")->fetch();
@@ -219,16 +220,6 @@
         </div>
 
     </div>
-
-<script>
-
-        function sub(){
-
-            form_1.submit();
-
-        }
-
-</script>
 
 <script src="js/js_login_1.js"></script>
 </body>
